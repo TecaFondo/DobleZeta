@@ -13,3 +13,12 @@ div {
 #bajoFoto {
     text-align: center;
 }
+
+header {
+    align-items: center;
+    text-align: center;
+}
+
+logo {
+    background-color: black;
+}
