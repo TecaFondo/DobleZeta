@@ -47,9 +47,8 @@ body {
 
 #menu_index {
     align-content: center;
-    padding: 30%;
     align-self: center;
-    padding: 50px;
+    padding: 10px;
 }
 
 div {
@@ -72,4 +71,8 @@ header {
     font-size: 18px;
     background-color: #212221;
     color: #fffcf7
+}
+
+#cuerpo {
+    text-align: justify;
 }
