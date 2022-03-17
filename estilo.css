@@ -1,13 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
 .justificado {
     text-align: justify;
+}
+
+ul {
+    align-content: center;
+    list-style-type: none;
+    width: 500px;
+    margin: 30px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    margin-right: auto;
+    float: left;
+    width: auto;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+body {
+    margin: 30px 30px;
+    background-color: #212221;
+    color: #fffcf7;
 }
 
 #comidas {
     margin: 2cm;
 }
 
+#menu_index {
+    margin-right: auto;
+    align-self: auto;
+}
+
 div {
     text-align: center;
+    margin: 40px;
 }
 
 #bajoFoto {
@@ -20,6 +62,8 @@ header {
 }
 
 #logo {
+    font-family: 'Amatic SC', cursive;
+    font-size: 18px;
     background-color: #212221;
-    color: rgb(173, 218, 224)
+    color: #fffcf7
 }
