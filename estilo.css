@@ -1,13 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
 .justificado {
     text-align: justify;
+}
+
+ul {
+    /*encargado de restringir menu de opciones en cuanto a tamaño físico*/
+    align-content: center;
+    list-style-type: none;
+    width: 420px;
+    margin: 20px;
+    padding: 5px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    /*restringe caja de cada item*/
+    float: left;
+    width: 30%;
+}
+
+li a {
+    /*restricciones de cada boton (texto dentro de este)*/
+    display: block;
+    color: #fffcf7;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+li a:hover {
+    /*controla el tenerl el cursor sobre el boton*/
+    background-color: rgb(73, 73, 73);
+}
+
+body {
+    padding: 60px;
+    margin: 30px 30px;
+    background-color: #212221;
+    color: #fffcf7;
 }
 
 #comidas {
     margin: 2cm;
 }
 
+#menu_index {
+    align-content: center;
+    padding: 30%;
+    align-self: center;
+    padding: 50px;
+}
+
 div {
+    padding: 10px;
     text-align: center;
+    margin: 40px;
 }
 
 #bajoFoto {
@@ -19,6 +68,9 @@ header {
     text-align: center;
 }
 
-logo {
-    background-color: black;
+#logo {
+    font-family: 'Amatic SC', cursive;
+    font-size: 18px;
+    background-color: #212221;
+    color: #fffcf7
 }
