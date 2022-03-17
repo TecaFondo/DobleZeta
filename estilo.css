@@ -18,3 +18,7 @@ header {
     align-items: center;
     text-align: center;
 }
+
+logo {
+    background-color: black;
+}
