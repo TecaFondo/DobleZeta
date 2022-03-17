@@ -5,34 +5,38 @@
 }
 
 ul {
+    /*encargado de restringir menu de opciones en cuanto a tamaño físico*/
     align-content: center;
     list-style-type: none;
-    width: 500px;
-    margin: 30px;
-    padding: 10px;
+    width: 420px;
+    margin: 20px;
+    padding: 5px;
     overflow: hidden;
     background-color: #333;
 }
 
 li {
-    margin-right: auto;
+    /*restringe caja de cada item*/
     float: left;
-    width: auto;
+    width: 30%;
 }
 
 li a {
+    /*restricciones de cada boton (texto dentro de este)*/
     display: block;
-    color: white;
+    color: #fffcf7;
     text-align: center;
-    padding: 10px 30px;
+    padding: 10px;
     text-decoration: none;
 }
 
 li a:hover {
-    background-color: #111;
+    /*controla el tenerl el cursor sobre el boton*/
+    background-color: rgb(73, 73, 73);
 }
 
 body {
+    padding: 60px;
     margin: 30px 30px;
     background-color: #212221;
     color: #fffcf7;
@@ -43,11 +47,14 @@ body {
 }
 
 #menu_index {
-    margin-right: auto;
-    align-self: auto;
+    align-content: center;
+    padding: 30%;
+    align-self: center;
+    padding: 50px;
 }
 
 div {
+    padding: 10px;
     text-align: center;
     margin: 40px;
 }
