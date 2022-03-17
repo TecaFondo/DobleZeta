@@ -17,8 +17,9 @@ div {
 header {
     align-items: center;
     text-align: center;
+    color
 }
 
-logo {
+#logo {
     background-color: black;
 }
