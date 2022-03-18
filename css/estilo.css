@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+.justificado {
+    text-align: justify;
+}
+
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.viewport-header {
+    position: relative;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+main {
+    background: #212221;
+    color: white;
+    position: relative;
+    padding: 1rem;
+}
+
+html ul {
+    /*encargado de restringir menu de opciones en cuanto a tamaño físico*/
+    align-content: center;
+    list-style-type: none;
+    margin: 20px;
+    padding: 5px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    /*restringe caja de cada item*/
+    float: left;
+    width: 30%;
+}
+
+li a {
+    /*restricciones de cada boton (texto dentro de este)*/
+    display: block;
+    color: #fffcf7;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+li a:hover {
+    /*controla el tenerl el cursor sobre el boton*/
+    background-color: rgb(73, 73, 73);
+}
+
+body {
+    padding: 60px;
+    margin: 30px 30px;
+    background-color: #212221;
+    color: #fffcf7;
+}
+
+#comidas {
+    margin: 2cm;
+}
+
+#menu_index {
+    align-content: center;
+    align-self: center;
+    padding: 10px;
+}
+
+div {
+    padding: 10px;
+    text-align: center;
+    margin: 40px;
+}
+
+#bajoFoto {
+    text-align: center;
+}
+
+header {
+    position: relative;
+    align-items: center;
+    text-align: center;
+}
+
+#logo {
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    /*background-color: #212221;*/
+    color: #fffcf7
+}
+
+#cuerpo {
+    text-align: justify;
+}
