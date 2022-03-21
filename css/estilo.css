@@ -74,7 +74,8 @@ body {
 }
 
 #comidas {
-    margin: 2cm;
+    margin: 10%;
+    text-align: justify;
 }
 
 #menu_index {
@@ -82,11 +83,11 @@ body {
     margin: 1%;
     align-content: center;
     align-self: center;
-    padding: 10px;
+    padding: 1%;
 }
 
 div {
-    padding: 2%;
+    padding: 1%;
     text-align: center;
     margin: 5%;
 }
@@ -102,7 +103,6 @@ header {
 }
 
 #logo {
-    margin-top: 15%;
     font-family: 'Amatic SC', cursive;
     font-size: 22px;
     /*background-color: #212221;*/
@@ -111,4 +111,19 @@ header {
 
 #cuerpo {
     text-align: justify;
+}
+
+#FondoMenu {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-filter: blur(15px);
+}
+
+#MenuMenu {
+    margin: 1%;
+    padding: 0%;
 }
