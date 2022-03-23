@@ -9,7 +9,7 @@ video {
     object-fit: cover;
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 }
@@ -57,7 +57,7 @@ li a {
     /*restricciones de cada boton (texto dentro de este)*/
     color: #fffcf7;
     text-align: center;
-    font-size: 13px;
+    font-size: 16px;
     padding: 1%;
     text-decoration: none;
 }
@@ -92,10 +92,15 @@ div {
 }
 
 #bajoFoto {
+    position: static;
+    margin: 5px;
+    padding: 5px;
     text-align: center;
 }
 
 header {
+    margin: 5px;
+    padding: 5px;
     position: relative;
     align-items: center;
     text-align: center;
@@ -120,6 +125,39 @@ header {
     top: 0;
     left: 0;
     -webkit-filter: blur(15px);
+}
+
+.btn-group-sm {
+    background-color: #333333;
+    outline: #212222;
+    align-items: center;
+}
+
+.btn.btn-secondary {
+    background-color: #333333;
+    outline: #333333;
+    border-color: #333;
+}
+
+.btn.btn-secondary a {
+    color: #fffcf7;
+}
+
+.btn.btn-secondary a:hover {
+    color: #fffcf7;
+    background-color: #333;
+}
+
+.navbar {
+    justify-content: left;
+    justify-items: left;
+    font-size: 12px;
+}
+
+.bg-color {
+    position: fixed;
+    color: #333333;
+    background-color: #333333;
 }
 
 
