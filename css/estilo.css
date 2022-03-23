@@ -14,10 +14,16 @@ video {
     left: 0;
 }
 
+
+/*Se ajusta el cuerpo de la pag en general*/
+
 html,
 body {
     height: 100%;
 }
+
+
+/*Se ajusta ventana de texto sobre video (puede ser que no lo necesitemos)*/
 
 .viewport-header {
     position: relative;
@@ -27,6 +33,9 @@ body {
     align-items: center;
     justify-self: center;
 }
+
+
+/*Se ajusta la clase main creada*/
 
 main {
     margin-top: 10%;
@@ -57,7 +66,6 @@ li a {
     /*restricciones de cada boton (texto dentro de este)*/
     color: #fffcf7;
     text-align: center;
-    font-size: 30px;
     padding: 1%;
     text-decoration: none;
 }
@@ -68,6 +76,7 @@ li a:hover {
 }
 
 body {
+    /*Opciones separadas de cuerpo (colores y margenes)*/
     padding: 8%;
     margin: 1%;
     background-color: #7e4f4f;
@@ -75,11 +84,13 @@ body {
 }
 
 #comidas {
+    /*Ajuste de sector id comidas (carta de comidas)*/
     margin: 10%;
     text-align: justify;
 }
 
 #menu_index {
+    /*Se ajusta barra de navegación presente en index*/
     position: relative;
     margin: 1%;
     align-content: center;
@@ -88,10 +99,12 @@ body {
 }
 
 div {
+    /* Se centra texto por defecto en los div*/
     text-align: center;
 }
 
 #bajoFoto {
+    /*Ajustes de texto inferior a logo de inicio*/
     position: static;
     margin: 5px;
     padding: 5px;
@@ -99,6 +112,7 @@ div {
 }
 
 header {
+    /*Restricciones de header*/
     margin: 5px;
     padding: 5px;
     position: relative;
@@ -107,6 +121,7 @@ header {
 }
 
 #logo {
+    /*Restricciones de logo y slogan*/
     font-family: 'Amatic SC', cursive;
     font-size: 22px;
     /*background-color: #212221;*/
@@ -114,12 +129,14 @@ header {
 }
 
 #cuerpo {
+    /*Ajuste de section cuerpo*/
     text-align: justify;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1rem;
 }
 
 #FondoMenu {
+    /*Ajustes de foto en carta de alimentos*/
     object-fit: cover;
     width: 100vw;
     height: 100vh;
@@ -130,6 +147,7 @@ header {
 }
 
 .btn-group-sm {
+    /*Ajustes de grupo de boton pequeño*/
     background-color: #333333;
     outline: #212222;
     align-items: center;
@@ -138,35 +156,117 @@ header {
 }
 
 .btn.btn-secondary {
+    /*Ajustes de boton secundario*/
     background-color: #333333;
     outline: #333333;
     border-color: #333;
 }
 
 .btn.btn-secondary a {
+    /*Ajustes link dentro de los botones secundarios*/
     color: #fffcf7;
 }
 
 .btn.btn-secondary a:hover {
+    /*ajustes link dentro de los botones secundarios al tener mouse arriba*/
     color: #fffcf7;
     background-color: #333;
 }
 
 .navbar {
+    /*Ajustes de clase barra de navegacion*/
     justify-content: left;
     justify-items: left;
     font-size: 12px;
 }
 
 .bg-color {
+    /*Ajustes de color en grupo de botones*/
     position: fixed;
     color: #333333;
     background-color: #333333;
 }
 
 footer {
+    /*Ajustes del footer*/
     position: relative;
     width: 100%;
+}
+
+
+/*Ajustes especificos para dispositivos pequeños*/
+
+@media(max-width:768px) {
+    footer {
+        position: relative;
+        width: 100%;
+        font-size: 4vw;
+    }
+    html,
+    body {
+        height: 100%;
+        font-size: 4vw;
+    }
+    li a {
+        font-size: 5vw;
+    }
+}
+
+
+/*Ajuste para tablets*/
+
+@media(min-width:768px) {
+    footer {
+        position: relative;
+        width: 100%;
+        font-size: 10vw;
+    }
+    html,
+    body {
+        height: 100%;
+        font-size: 4vw;
+    }
+    li a {
+        font-size: 5vw;
+    }
+}
+
+
+/*Ajustes para computadoras*/
+
+@media(min-width:992px) {
+    footer {
+        position: relative;
+        width: 100%;
+        font-size: 1vw;
+    }
+    html,
+    body {
+        height: 100%;
+        font-size: 1vw;
+    }
+    li a {
+        font-size: 2vw;
+    }
+}
+
+
+/*Ajustes resoluciones grandes*/
+
+@media(min-width:1200) {
+    footer {
+        position: relative;
+        width: 100%;
+        font-size: 2vw;
+    }
+    html,
+    body {
+        height: 100%;
+        font-size: 2vw;
+    }
+    li a {
+        font-size: 4vw;
+    }
 }
 
 
