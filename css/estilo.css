@@ -162,6 +162,10 @@ header {
     background-color: #333333;
 }
 
+footer {
+    position: relative;
+}
+
 
 /*#MenuMenu {
     margin: 1%;
