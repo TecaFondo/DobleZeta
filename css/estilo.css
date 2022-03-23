@@ -57,7 +57,7 @@ li a {
     /*restricciones de cada boton (texto dentro de este)*/
     color: #fffcf7;
     text-align: center;
-    font-size: 16px;
+    font-size: 30px;
     padding: 1%;
     text-decoration: none;
 }
@@ -131,6 +131,8 @@ header {
     background-color: #333333;
     outline: #212222;
     align-items: center;
+    margin: 20px;
+    padding: 10px;
 }
 
 .btn.btn-secondary {
