@@ -16,7 +16,6 @@
     <video src="coffeebroll.mp4" autoplay loop muted></video>
     <div class="row">
         <div class="col-md-12">
-
             <header id="logo">
                 <img src="Doble-Z.png" alt="Logo local" width="280">
                 <section id="menu_index">
@@ -26,7 +25,6 @@
                             <li><a href="https://www.google.com/maps/dir//DOBLE+ZETA+Restaurant+%26+Cafeter%C3%ADa+-+Las+Tranqueras+117,+local+1+Esquina,+Pedro+de+Gamboa,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.4003076,-70.5570257,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x9662cfe1e534fe7d:0x44189b4506027cfb!2m2!1d-70.554837!2d-33.4003121!3e0"
                                     target="_blank">CÓMO LLEGAR</a></li>
                             <li><a href="#nosotros">NOSOTROS</a></li>
-
                         </ul>
                     </div>
                 </section>
@@ -34,18 +32,18 @@
         </div>
     </div>
     <main>
-        <section class="container-lg" d="cuerpo">
+        <section class="container-lg" id="cuerpo">
             <section>
-                <h1>¿Qué quieres comer hoy?</h1>
+                <h2>¿Qué quieres comer hoy?</h2>
                 <p>Te estamos esperando con la comida más rica de la zona.</p>
             </section>
 
             <section id="nosotros">
-                <h3>Nosotros</h3>
+                <h2>Nosotros</h2>
                 <p>Nuestra misión es servir comida rica, fresca y saludable, combinada con un café de excelencia, en un ambiente relajado.</p>
             </section>
             <section>
-                <h3>Amplia variedad de comidas</h3>
+                <h2>Amplia variedad de comidas</h2>
                 <p>
                     Podras encontrar de todo tipo de comida dentro de nuestro local. Desde pizzas hasta café, pasando por sandwiches, sopas y helados.
                 </p>
@@ -66,6 +64,41 @@
                 </a>
             </section>
             <!-- Section: Redes Sociales-->
+
+            <!--Section: Forma (reserva)-->
+            <section class="">
+                <form action="">
+                    <!--grilla para visual-->
+                    <div class="row d-flex justify-content-center">
+                        <!--Columna-->
+                        <div class="col-auto">
+                            <p class="pt-2">
+                                <strong>Realiza una reserva</strong>
+                            </p>
+                        </div>
+                        <!--fin Columna-->
+                        <!--Columna-->
+                        <div class="col-md-5 col-12">
+                            <!--Entrada de Email-->
+                            <div class="form-outline form-dark mb-4">
+                                <input type="email" id="EntradaMail" class="form-control">
+                                <label class="form-label" for="EntradaMail">Dirección de Email</label>
+                            </div>
+                        </div>
+                        <!--fin Columna-->
+
+                        <!--comienzo grilla-->
+                        <div class="col-auto">
+                            <!--boton suscribir-->
+                            <button type="submit" class="btn btn-outline-light mb-4">
+                            Suscribir
+                        </button>
+                        </div>
+                        <!--fin grilla-->
+                    </div>
+                    <!-- fin Grilla para visualizar-->
+                </form>
+            </section>
         </div>
         <!--/Contenedor de Grilla-->
         <!--
