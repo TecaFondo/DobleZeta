@@ -2,49 +2,70 @@
 <html lang="es">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOBLE ZETA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 
 <body>
+    <!--Imagen para fondo superior-->
     <img src="pizza.jpg" alt="PizzaDoblezeta" id="FondoMenu">
+    <!--Inicio de navegador-->
     <header>
-        <section>
-            <div id="MenuMenu">
-                <ul>
-                    <li><a href="index.html">INICIO</a></li>
-                    <li><a href="https://www.google.com/maps/dir//DOBLE+ZETA+Restaurant+%26+Cafeter%C3%ADa+-+Las+Tranqueras+117,+local+1+Esquina,+Pedro+de+Gamboa,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.4003076,-70.5570257,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x9662cfe1e534fe7d:0x44189b4506027cfb!2m2!1d-70.554837!2d-33.4003121!3e0"
-                            target="_blank">CÓMO LLEGAR</a></li>
-                    <li><a href="index.html#nosotros">NOSOTROS</a></li>
-                </ul>
-            </div>
-        </section>
-        <section id="bajoFoto">
-            <img src="Doble-Z.png" alt="Logo local" width="300" height="300"> <br>Restaurant & Cafetería
-        </section>
+        <nav class="row">
+            <nav class="col-ss-12">
+                <nav class="navbar navbar-dark bg-color fixed-top " id="navDiv">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="doblezetaLogo.png" alt="" width="32" height="32" class="d-inline-block align-text-top"> DobleZeta
+                        </a>
+
+                        <a class="navbar-text" href="https://www.google.com/maps/dir//DOBLE+ZETA+Restaurant+%26+Cafeter%C3%ADa+-+Las+Tranqueras+117,+local+1+Esquina,+Pedro+de+Gamboa,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.4003076,-70.5570257,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x9662cfe1e534fe7d:0x44189b4506027cfb!2m2!1d-70.554837!2d-33.4003121!3e0"
+                            target="_blank">CÓMO LLEGAR </a>
+                        <a class="navbar-text" href="index.html#nosotros">NOSOTROS</a>
+                    </div>
+                </nav>
+            </nav>
+        </nav>
     </header>
+    <!--Fin de navegador-->
 
-    <section id="menu_index">
-        <div>
-            <ul>
-                <li><a href="#pizzas ">PIZZAS</a></li>
-                <li><a href="#sandwiches ">SANDWICHES</a></li>
-                <li><a href="#cafeteria ">CAFETERIA</a></li>
-                <li><a href="#bolleria ">BOLLERIA</a></li>
-                <li><a href="#al_plato ">AL PLATO</a></li>
-                <li><a href="#cremas_verduras ">CREMAS DE VERDURA</a></li>
-                <li><a href="#ensaladas ">ENSALADAS</a></li>
-                <li><a href="#helados ">HELADOS</a></li>
-                <li><a href="#para_beber ">BEBIDAS, JUGOS, CERVEZAS</a></li>
+    <div class="row">
+        <div class="col-sm-12">
 
-            </ul>
+            <section id="bajoFoto">
+                <img src="Doble-Z.png" alt="Logo local" width="240">
+            </section>
+
         </div>
+    </div>
+
+    <section>
+        <!--Menu de tipos de alimento-->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="btn-group-sm" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary"><a href="#pizzas ">PIZZAS</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="#sandwiches ">SANDWICHES</button>
+                    <button type="button" class="btn btn-secondary"><a href="#cafeteria ">CAFETERIA</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="#bolleria ">PASTELERIA</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="#al_plato ">AL PLATO</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="#cremas_verduras ">CREMAS DE VERDURA</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="#ensaladas ">ENSALADAS</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="#helados ">HELADOS</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="#para_beber ">BEBIDAS, JUGOS, CERVEZAS</a></button>
+                </div>
+            </div>
+        </div>
+
     </section>
+    <!--Fin de menu de tipos de alimento-->
     <main>
         <section id="comidas">
+            <!--comienzo carta de comidas-->
             <section id="pizzas">
                 <!--PIZZAS-->
                 <h3>PIZZAS</h3>
@@ -541,9 +562,15 @@
                 </section>
             </section>
         </section>
+        <!--Fin carta de comidas-->
     </main>
     <footer>
     </footer>
+    <!--Siempre se declaran estos 3 al final del HTML (se debe mantener el orden)-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/db0252fb97.js"></script>
 </body>
 
 </html>
