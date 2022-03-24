@@ -38,11 +38,14 @@ body {
 /*Se ajusta la clase main creada*/
 
 main {
+    padding: 1%;
+    margin: 1vw;
     margin-top: 10%;
     background: #212222;
     color: white;
     position: relative;
     padding: 1rem;
+    text-align: justify;
 }
 
 html ul {
@@ -78,15 +81,13 @@ li a:hover {
 
 body {
     /*Opciones separadas de cuerpo (colores y margenes)*/
-    padding: 8%;
-    margin: 1%;
     background-color: #7e4f4f;
     color: #fffcf7;
 }
 
 #comidas {
     /*Ajuste de sector id comidas (carta de comidas)*/
-    margin: 10%;
+    margin: 4%;
     text-align: justify;
 }
 
@@ -107,15 +108,15 @@ div {
 #bajoFoto {
     /*Ajustes de texto inferior a logo de inicio*/
     position: static;
-    margin: 5px;
-    padding: 5px;
+    margin: 5vh;
+    padding: 5vh;
     text-align: center;
 }
 
 header {
     /*Restricciones de header*/
-    margin: 5px;
-    padding: 5px;
+    margin: 1vw;
+    padding: 1vw;
     position: relative;
     align-items: center;
     text-align: center;
@@ -123,6 +124,7 @@ header {
 
 #logo {
     /*Restricciones de logo y slogan*/
+    margin-top: 5vw;
     font-family: 'Amatic SC', cursive;
     font-size: 22px;
     /*background-color: #212221;*/
@@ -205,19 +207,41 @@ footer {
 
 /*Ajustes especificos para dispositivos pequeños*/
 
-@media(max-width:768px) {
+@media(min-width:320px) {
     footer {
         position: relative;
         width: 100%;
-        font-size: 4vw;
+        font-size: 1rem;
     }
     html,
     body {
         height: 100%;
-        font-size: 4vw;
+        font-size: 1rem;
     }
     li a {
-        font-size: 5vw;
+        font-size: 1rem;
+    }
+    .navbar {
+        font-size: 0.8rem;
+    }
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+@media(minx-width:768px) {
+    footer {
+        position: relative;
+        width: 100%;
+        font-size: 5rem;
+    }
+    html,
+    body {
+        height: 100%;
+        font-size: 5rem;
+    }
+    li a {
+        font-size: 5rem;
     }
     .navbar {
         font-size: 0.8rem;
@@ -234,15 +258,15 @@ footer {
     footer {
         position: relative;
         width: 100%;
-        font-size: 10vw;
+        font-size: 2vw;
     }
     html,
     body {
         height: 100%;
-        font-size: 4vw;
+        font-size: 2vw;
     }
     li a {
-        font-size: 5vw;
+        font-size: 2vw;
     }
     .navbar {
         font-size: 0.8rem;
@@ -262,7 +286,29 @@ footer {
     html,
     body {
         height: 100%;
+        font-size: 1.2vw;
+    }
+    li a {
+        font-size: 2vw;
+    }
+    .navbar {
+        font-size: 1.8rem;
+    }
+    .navbar-brand {
+        font-size: 2.1rem;
+    }
+}
+
+@media(min-width:1100px) {
+    footer {
+        position: relative;
+        width: 100%;
         font-size: 1vw;
+    }
+    html,
+    body {
+        height: 100%;
+        font-size: 1.7vw;
     }
     li a {
         font-size: 2vw;
