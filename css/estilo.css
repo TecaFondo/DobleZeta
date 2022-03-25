@@ -281,12 +281,12 @@ footer {
     footer {
         position: relative;
         width: 100%;
-        font-size: 1vw;
+        font-size: 1.5vw;
     }
     html,
     body {
         height: 100%;
-        font-size: 1.2vw;
+        font-size: 1.5vw;
     }
     li a {
         font-size: 2vw;
@@ -303,12 +303,12 @@ footer {
     footer {
         position: relative;
         width: 100%;
-        font-size: 1vw;
+        font-size: 2vw;
     }
     html,
     body {
         height: 100%;
-        font-size: 1.7vw;
+        font-size: 2vw;
     }
     li a {
         font-size: 2vw;
