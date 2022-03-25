@@ -222,29 +222,7 @@ footer {
         font-size: 1rem;
     }
     .navbar {
-        font-size: 0.8rem;
-    }
-    .navbar-brand {
-        font-size: 1.2rem;
-    }
-}
-
-@media(minx-width:768px) {
-    footer {
-        position: relative;
-        width: 100%;
-        font-size: 5rem;
-    }
-    html,
-    body {
-        height: 100%;
-        font-size: 5rem;
-    }
-    li a {
-        font-size: 5rem;
-    }
-    .navbar {
-        font-size: 0.8rem;
+        font-size: 3.4vw;
     }
     .navbar-brand {
         font-size: 1.2rem;
@@ -269,8 +247,10 @@ footer {
         font-size: 2vw;
     }
     .navbar {
-        font-size: 0.8rem;
-        height: 90px;
+        font-size: 4vw;
+    }
+    .navbar-brand {
+        font-size: 1.2rem;
     }
 }
 
@@ -286,7 +266,7 @@ footer {
     html,
     body {
         height: 100%;
-        font-size: 1.5vw;
+        font-size: 1.6vw;
     }
     li a {
         font-size: 2vw;
@@ -298,51 +278,26 @@ footer {
         font-size: 2.1rem;
     }
 }
+
+
+/*Resoluciones grandes*/
 
 @media(min-width:1100px) {
     footer {
         position: relative;
         width: 100%;
-        font-size: 2vw;
+        font-size: 1.4vw;
     }
     html,
     body {
         height: 100%;
-        font-size: 2vw;
+        font-size: 1.2vw;
     }
     li a {
         font-size: 2vw;
     }
-    .navbar {
-        font-size: 1.8rem;
-    }
     .navbar-brand {
-        font-size: 2.1rem;
-    }
-}
-
-
-/*Ajustes resoluciones grandes*/
-
-@media(min-width:1200) {
-    footer {
-        position: relative;
-        width: 100%;
         font-size: 2vw;
-    }
-    html,
-    body {
-        height: 100%;
-        font-size: 2vw;
-    }
-    li a {
-        font-size: 4vw;
-    }
-    .navbar {
-        font-size: 2.2rem;
-    }
-    .navbar-brand {
-        font-size: 2.5rem;
     }
 }
 
