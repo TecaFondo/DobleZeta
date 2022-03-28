@@ -332,7 +332,8 @@ footer {
 @media(min-width: 768px) {
     .platillos {
         display: flex;
-        justify-content: space-between;
+        align-content: flex-start;
+        justify-content: center;
         flex-wrap: wrap;
     }
 }
@@ -340,8 +341,9 @@ footer {
 .platillo {
     flex: 0 0 calc(33.3% - 1rem);
     border: 1px solid #e1e1e1;
-    padding: 2rem;
-    border-radius: 5px;
+    margin-right: 1vh;
+    padding: 3px;
+    border-radius: 1rem;
 }
 
 .platillo h2 {
@@ -349,17 +351,17 @@ footer {
 }
 
 .platillo p {
-    font-size: 1rem;
+    font-size: 1.9vw;
 }
 
 .precio {
-    display: flex;
-    justify-content: space-between;
+    display: fixed;
+    justify-content: center;
 }
 
 .precio p {
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 2.3vw;
 }
 
 .precio button {
