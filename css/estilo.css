@@ -208,6 +208,13 @@ footer {
     font-family: "Amatic SC", cursive;
 }
 
+.precio {
+    display: fixed;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2.3vw;
+}
+
 
 /*Ajustes especificos para dispositivos pequeños*/
 
@@ -378,16 +385,6 @@ footer p {
 
 .platillo:hover {
     background-color: #464639;
-}
-
-.precio {
-    display: fixed;
-    justify-content: center;
-}
-
-.precio p {
-    font-weight: bold;
-    font-size: 2.3vw;
 }
 
 .separador {
