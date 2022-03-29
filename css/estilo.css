@@ -217,7 +217,11 @@ footer {
         width: 100%;
         font-size: 1rem;
     }
-    html,
+    footer p {
+        margin: 1vw;
+        font-size: 3vw;
+    }
+    ht html,
     body {
         height: 100%;
         font-size: 1rem;
@@ -243,6 +247,10 @@ footer {
     }
 }
 
+footer p {
+    text-align: Justify;
+}
+
 
 /*Ajuste para tablets*/
 
@@ -252,7 +260,11 @@ footer {
         width: 100%;
         font-size: 2vw;
     }
-    html,
+    footer p {
+        margin: 1vw;
+        font-size: 1vw;
+    }
+    ht html,
     body {
         height: 100%;
         font-size: 2vw;
@@ -295,7 +307,11 @@ footer {
         width: 100%;
         font-size: 1.5vw;
     }
-    html,
+    footer p {
+        margin: 1vw;
+        font-size: 1vw;
+    }
+    ht html,
     body {
         height: 100%;
         font-size: 1.6vw;
@@ -324,10 +340,14 @@ footer {
         width: 100%;
         font-size: 1.4vw;
     }
+    footer p {
+        margin: 1vw;
+        font-size: 1vw;
+    }
     html,
     body {
         height: 100%;
-        font-size: 1.9vw;
+        font-size: 1.1vw;
     }
     li a {
         font-size: 2vw;
@@ -398,4 +418,12 @@ footer {
     font-size: 4rem;
     color: var(--blanco);
     text-align: center;
+}
+
+input {
+    margin: 1vw;
+}
+
+.col-auto {
+    margin: 1vw;
 }
