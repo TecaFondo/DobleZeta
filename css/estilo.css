@@ -204,6 +204,10 @@ footer {
     font-family: "Amatic SC", cursive;
 }
 
+.navbar {
+    font-family: "Amatic SC", cursive;
+}
+
 
 /*Ajustes especificos para dispositivos pequeños*/
 
@@ -226,6 +230,16 @@ footer {
     }
     .navbar-brand {
         font-size: 1.2rem;
+    }
+    .platillo h2 {
+        text-align: center;
+        font-size: 6vw;
+    }
+    .platillo p {
+        font-size: 3vw;
+    }
+    .platillo img {
+        width: 230px;
     }
 }
 
@@ -252,6 +266,24 @@ footer {
     .navbar-brand {
         font-size: 1.2rem;
     }
+    .botones-platillos {
+        display: inline-block;
+    }
+    .botones-platillos button {
+        flex: unset;
+    }
+    .platillos {
+        display: flex;
+        align-content: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .platillos h2 {
+        font-size: 2.5vw;
+    }
+    .platillos p {
+        font-size: 1.5vw;
+    }
 }
 
 
@@ -277,6 +309,10 @@ footer {
     .navbar-brand {
         font-size: 2.1rem;
     }
+    .platillo h2 {
+        text-align: center;
+        font-size: 2.5vw;
+    }
 }
 
 
@@ -291,12 +327,19 @@ footer {
     html,
     body {
         height: 100%;
-        font-size: 1.2vw;
+        font-size: 1.9vw;
     }
     li a {
         font-size: 2vw;
     }
+    .navbar {
+        font-size: 2vw;
+    }
     .navbar-brand {
+        font-size: 2vw;
+    }
+    .platillo h2 {
+        text-align: center;
         font-size: 2vw;
     }
 }
@@ -304,54 +347,17 @@ footer {
 
 /*platillos*/
 
-.texto-platillos {
-    text-align: center;
-    font-size: 5rem;
-}
-
-.botones-platillos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.botones-platillos button {
-    flex: 0 0 calc(50% - 1rem);
-    padding: 1rem 3rem;
-}
-
-@media(min-width: 768px) {
-    .botones-platillos {
-        display: inline-block;
-    }
-    .botones-platillos button {
-        flex: unset;
-    }
-}
-
-@media(min-width: 768px) {
-    .platillos {
-        display: flex;
-        align-content: flex-start;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-}
-
 .platillo {
+    margin-top: 2vw;
     flex: 0 0 calc(33.3% - 1rem);
-    border: 1px solid #e1e1e1;
+    border: 1px solid #464639;
     margin-right: 1vh;
     padding: 3px;
     border-radius: 1rem;
 }
 
-.platillo h2 {
-    text-align: center;
-}
-
-.platillo p {
-    font-size: 1.9vw;
+.platillo:hover {
+    background-color: #464639;
 }
 
 .precio {
@@ -364,17 +370,8 @@ footer {
     font-size: 2.3vw;
 }
 
-.precio button {
-    padding: 1rem;
-    border-radius: 5px;
-    border: none;
-    background-color: var(--rojo);
-    color: var(--blanco);
-    height: 3.8rem;
-}
-
 .separador {
-    background-image: url('../img/ensalada.webp');
+    background-image: url('/img/ensalada.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -402,9 +399,3 @@ footer {
     color: var(--blanco);
     text-align: center;
 }
-
-
-/*#MenuMenu {
-    margin: 1%;
-    padding: 0%;
-}*/
