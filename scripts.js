@@ -11,7 +11,7 @@ function sendEmail(email, mensaje) {
         Subject: "Test Email",
         Body: mensaje
     }).then(
-        message => alert("mail sent successfully")
+        message => alert("Correo enviado")
     );
 }
 
@@ -28,7 +28,6 @@ formulario.addEventListener('submit', (e) => {
         console.log("Se aprueba correo")
         if (mensaje != null) {
             console.log("Se aprueba mensaje")
-            alert("Correo enviado")
             sendEmail(email, mensaje);
             console.log("Mensaje enviado")
             return true;
