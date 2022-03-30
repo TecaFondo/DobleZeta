@@ -11,7 +11,7 @@ function sendEmail(email, mensaje) {
         Subject: "Test Email",
         Body: mensaje
     }).then(
-        message => alert("Mensaje enviado")
+        message => alert("Correo enviado")
     );
 }
 
