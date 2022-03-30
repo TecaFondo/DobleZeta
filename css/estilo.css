@@ -45,7 +45,6 @@ main {
     color: white;
     position: relative;
     padding: 1rem;
-    text-align: justify;
 }
 
 html ul {
@@ -233,8 +232,14 @@ footer {
         height: 100%;
         font-size: 1rem;
     }
+    body h2 {
+        color: #ffffff;
+        margin: 20px;
+        text-align: center;
+        font-size: 7vw;
+    }
     li a {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     .navbar {
         font-size: 3.4vw;
@@ -275,6 +280,16 @@ footer p {
     body {
         height: 100%;
         font-size: 2vw;
+    }
+    main p {
+        text-align: justify;
+        margin: 20px;
+    }
+    body h2 {
+        color: #ffffff;
+        margin: 20px;
+        text-align: center;
+        font-size: 4vw;
     }
     li a {
         font-size: 2vw;
@@ -323,6 +338,16 @@ footer p {
         height: 100%;
         font-size: 1.6vw;
     }
+    main p {
+        text-align: center;
+        margin: 20px;
+    }
+    body h2 {
+        color: #ffffff;
+        margin: 20px;
+        text-align: center;
+        font-size: 2.9vw;
+    }
     li a {
         font-size: 2vw;
     }
@@ -356,11 +381,22 @@ footer p {
         height: 100%;
         font-size: 1.1vw;
     }
+    main p {
+        text-align: center;
+        margin: 20px;
+    }
+    body h2 {
+        color: #ffffff;
+        margin: 20px;
+        text-align: center;
+        font-size: 2.5vw;
+    }
     li a {
         font-size: 2vw;
     }
     .navbar {
         font-size: 2vw;
+        opacity: 99%;
     }
     .navbar-brand {
         font-size: 2vw;
