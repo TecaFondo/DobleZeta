@@ -1,16 +1,19 @@
 const formulario = document.getElementById('formulario');
 
-/*function sendEmail() {
+function sendEmail(email, mensaje) {
     Email.send({
-        SecureToken: "<your generated token>",
-        To: 'carlosvkohle',
-        From: "sender@example.com",
+
+        Host: "smtp.mailtrap.io",
+        Username: "10ef1dc05d2969",
+        Password: "25c702958bf97a",
+        To: 'carlosvkohler@gmail.com',
+        From: email,
         Subject: "Test Email",
-        Body: "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+        Body: mensaje
     }).then(
         message => alert("mail sent successfully")
     );
-}*/
+}
 
 
 formulario.addEventListener('submit', (e) => {
@@ -18,13 +21,16 @@ formulario.addEventListener('submit', (e) => {
     var email = document.getElementById("EntradaMail").value;
     var mensaje = document.getElementById("infoBox").value;
     const regx = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/
-    const regex = /^([a-zA-Z0-9\._])?$/
+        /*const regex = /^([a-zA-Z0-9\._])?$/*/
 
 
     if (regx.test(email)) {
-        if (regex.test(mensaje)) {
+        console.log("Se aprueba correo")
+        if (mensaje != null) {
+            console.log("Se aprueba mensaje")
             alert("Correo enviado")
-            sendEmail();
+            sendEmail(email, mensaje);
+            console.log("Mensaje enviado")
             return true;
         }
     } else {
