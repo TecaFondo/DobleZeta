@@ -145,6 +145,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
+    filter: blur(15px);
     -webkit-filter: blur(15px);
 }
 
@@ -214,6 +215,18 @@ footer {
     font-size: 2.3vw;
 }
 
+#busqueda {
+    margin-left: 0;
+    padding-left: 0;
+    float: center;
+}
+
+#POST-buscar {
+    margin-right: 0;
+    padding-right: 0;
+    float: center;
+}
+
 
 /*Ajustes especificos para dispositivos pequeños*/
 
@@ -256,6 +269,13 @@ footer {
     }
     .platillo img {
         width: 230px;
+    }
+    #flechita {
+        width: 100px;
+        float: right;
+        margin: 1rem;
+        padding: 1rem;
+        left: 70vw;
     }
 }
 
@@ -318,6 +338,13 @@ footer p {
     .platillos p {
         font-size: 1.5vw;
     }
+    #flechita {
+        width: 100px;
+        float: right;
+        margin: 1rem;
+        padding: 1rem;
+        left: 75vw;
+    }
 }
 
 
@@ -360,6 +387,13 @@ footer p {
     .platillo h2 {
         text-align: center;
         font-size: 2.5vw;
+    }
+    #flechita {
+        width: 100px;
+        float: right;
+        margin: 1rem;
+        padding: 1rem;
+        left: 85vw;
     }
 }
 
@@ -404,6 +438,13 @@ footer p {
     .platillo h2 {
         text-align: center;
         font-size: 2vw;
+    }
+    #flechita {
+        width: 100px;
+        float: right;
+        margin: 1rem;
+        padding: 1rem;
+        left: 90vw;
     }
 }
 
@@ -459,4 +500,22 @@ input {
 
 .col-auto {
     margin: 1vw;
+}
+
+.hide {
+    opacity: 0;
+    left: -100%;
+}
+
+.show {
+    opacity: 1;
+    left: 0;
+}
+
+
+/*Back to top*/
+
+#flecha {
+    border-radius: 100%;
+    font-size: 2rem;
 }

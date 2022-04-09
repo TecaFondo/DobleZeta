@@ -37,3 +37,15 @@ formulario.addEventListener('submit', (e) => {
         return false;
     }
 })
+myID = document.getElementById("flechita");
+
+var myScrollFunc = function() {
+    var y = window.scrollY;
+    if (y >= 200) {
+        myID.className = "fixed-bottom show"
+    } else {
+        myID.className = "fixed-bottom hide"
+    }
+};
+
+window.addEventListener("scroll", myScrollFunc);

@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
     <!--Imagen para fondo superior-->
     <img src="img/pizza.jpg" alt="PizzaDoblezeta" id="FondoMenu">
     <!--Inicio de navegador-->
@@ -64,14 +65,25 @@
         </div>
 
     </section>
-    <div class="container">
-        <form action="search">Buscar</form>
+    <div class="fixed-bottom hide" id="flechita">
+        <button class="btn btn-dark" id="flecha">
+            <a href="#" class="fa fa-arrow-up"></a>
+        </button>
     </div>
-
     <main>
+        <div class="search-container">
+            <form action="">
+                <input id="POST-buscar" type="text" name="Buscar" placeholder="Buscar..">
+                <button>
+                    <i class="fa fa-search" id="busqueda">
+                    </i>
+                </button>
+            </form>
+        </div>
+
+
         <section id="pizzas">
             <div class="platillos">
-
                 <div class="platillo">
                     <img src="img/pizza1.jpg" alt="pizza" width="300">
                     <h2>Pizza Pepperoni</h2>
