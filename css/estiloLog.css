@@ -94,6 +94,24 @@ input:focus :-ms-input-placeholder {
     width: 100%;
 }
 
+.login-new-user {
+    bottom: 1;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 75%;
+    left: 0;
+    opacity: 0.6;
+    padding: 0.5rem;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.login-new-suer:hover {
+    opacity: 1;
+}
+
 .login-forgot-pass:hover {
     opacity: 1;
 }
@@ -135,6 +153,14 @@ input:focus :-ms-input-placeholder {
 .underlay-black {
     background: rgba(0, 0, 0, 0.7);
     z-index: -1;
+}
+
+#flechita {
+    width: 100px;
+    float: right;
+    margin: 1rem;
+    padding: 1rem;
+    left: 85vw;
 }
 
 @keyframes hue-rotate {
