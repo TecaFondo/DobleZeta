@@ -272,7 +272,8 @@ footer {
     .platillo img {
         width: 230px;
     }
-    #flechita {
+    #flechita,
+    #flechitaMenu {
         width: 100px;
         float: right;
         margin: 1rem;
@@ -340,7 +341,8 @@ footer p {
     .platillos p {
         font-size: 1.5vw;
     }
-    #flechita {
+    #flechita,
+    #flechitaMenu {
         width: 100px;
         float: right;
         margin: 1rem;
@@ -390,7 +392,8 @@ footer p {
         text-align: center;
         font-size: 2.5vw;
     }
-    #flechita {
+    #flechita,
+    #flechitaMenu {
         width: 100px;
         float: right;
         margin: 1rem;
@@ -441,7 +444,8 @@ footer p {
         text-align: center;
         font-size: 2vw;
     }
-    #flechita {
+    #flechita,
+    #flechitaMenu {
         width: 100px;
         float: right;
         margin: 1rem;
@@ -517,18 +521,23 @@ input {
 
 /*Back to top*/
 
-#flecha {
+#flecha,
+#flechaMenu {
     border-radius: 100%;
     font-size: 2rem;
 }
 
+
 /*Se encarga de paginas de usuario*/
+
 #cuerpoLog {
     font-family: "Open Sans";
     font-weight: 100;
     display: flex;
     overflow: hidden;
 }
+
+
 /*
 input ::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.7);
