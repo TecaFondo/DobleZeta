@@ -1,5 +1,7 @@
 const formulario = document.getElementById('formulario');
 
+$("#mensajeError1").hide();
+
 function sendEmail(email, mensaje) {
     Email.send({
 
@@ -15,16 +17,49 @@ function sendEmail(email, mensaje) {
     );
 }
 
+function IsEmail(email) {
+    var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (!regex.test(email)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+$("#mensajeError").hide();
+$("#mensajeErrorPass").hide();
+$("#loginBTN").click(function() {
+    var correo = $("#correo").val();
+    if (IsEmail(correo) && correo != "") {
+        if ($("#pass").val() != "") {
+            $("#mensajeError").hide();
+        } else {
+            $("#mensajeError").show();
+        }
+    } else {
+        $("#mensajeError").show();
+    }
+});
+$("#crearUsr").click(function() {
+    var correo = $("#newcorreo").val();
+    if (IsEmail(correo) && correo != "") {
+        $("mensajeError1").hide();
+        if ($("#clave1").val() != "" && $("#clave2").val() == $("clave1").val()) {
+            $("#mensajeError1").hide();
+            $("#mensajeErrorPass").hide();
+        } else {
+            $("#mensajeErrorPass").show();
+        }
+    } else {
+        $("mensajeError1").show();
+    }
+})
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     var email = document.getElementById("EntradaMail").value;
     var mensaje = document.getElementById("infoBox").value;
-    const regx = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/
-        /*const regex = /^([a-zA-Z0-9\._])?$/*/
 
-
-    if (regx.test(email)) {
+    if (IsEmail(email)) {
         console.log("Se aprueba correo")
         if (mensaje != null) {
             console.log("Se aprueba mensaje")
@@ -36,7 +71,8 @@ formulario.addEventListener('submit', (e) => {
         alert("Correo Incorrecto")
         return false;
     }
-})
+});
+
 
 myID = document.getElementById("flechitaMenu");
 var myScrollFunc = function() {

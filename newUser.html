@@ -20,18 +20,19 @@
             <a href="index.html" class="fa fa-arrow-left"></a>
         </button>
     </div>
-    <form class="login-form">
+    <form action="#" class="login-form">
         <p class="login-text">
             <span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-lock fa-stack-1x"></i>
           </span>
         </p>
-        <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
-        <input type="password" class="login-password" required="true" placeholder="Contraseña" />
-        <input type="password" class="login-password" required="true" placeholder="Repetir Contraseña" />
-
-        <input type="submit" name="create" value="Crear Usuario" class="login-submit" />
+        <input type="email" class="login-username" autofocus="true" placeholder="Email" id="newcorreo" />
+        <input type="password" class="login-password" placeholder="Contraseña" id="clave1" />
+        <input type="password" class="login-password" placeholder="Repetir Contraseña" id="clave2" />
+        <input type="submit" name="create" value="Crear Usuario" class="login-submit" id="crearUsr" />
+        <p class="login-text" id="mensajeError1">Usuario invalido</p>
+        <p class="login-text" id="mensajeErrorPass"> Las contraseñas no coinciden</p>
     </form>
     <a href="login.html" class="login-new-user"> Ya tienes usuario? Log-in</a>
     <div class="underlay-photo"></div>
