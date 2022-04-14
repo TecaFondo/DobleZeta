@@ -32,6 +32,7 @@ $("#loginBTN").click(function() {
     if (IsEmail(correo) && correo != "") {
         if ($("#pass").val() != "") {
             $("#mensajeError").hide();
+            alert("inicio sesion exitoso");
         } else {
             $("#mensajeError").show();
         }
@@ -41,13 +42,18 @@ $("#loginBTN").click(function() {
 });
 $("#crearUsr").click(function() {
     var correo = $("#newcorreo").val();
+
     if (IsEmail(correo) && correo != "") {
         $("mensajeError1").hide();
-        if ($("#clave1").val() != "" && $("#clave2").val() == $("clave1").val()) {
-            $("#mensajeError1").hide();
-            $("#mensajeErrorPass").hide();
-        } else {
-            $("#mensajeErrorPass").show();
+        if (($("#clave1").val() != "")) {
+            if (($("#clave2").val()) == ($("#clave1").val())) {
+                $("#mensajeError1").hide();
+                $("#mensajeErrorPass").hide();
+                alert("Nuevo usuario creado");
+            } else {
+                $("#mensajeErrorPass").show();
+
+            }
         }
     } else {
         $("mensajeError1").show();
