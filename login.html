@@ -20,16 +20,17 @@
             <a href="index.html" class="fa fa-arrow-left"></a>
         </button>
     </div>
-    <form class="login-form">
+    <form class="login-form" action="#">
         <p class="login-text">
             <span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-lock fa-stack-1x"></i>
           </span>
         </p>
-        <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
-        <input type="password" class="login-password" required="true" placeholder="Contraseña" />
-        <input type="submit" name="Login" value="Login" class="login-submit" />
+        <input type="email" class="login-username" autofocus="true" placeholder="Email" id="correo" />
+        <input type="password" class="login-password" placeholder="Contraseña" id="pass" />
+        <input type="submit" name="loginBTN" value="Login" class="login-submit" id="loginBTN" />
+        <p class="login-text" id="mensajeError">Usuario o contraseña incorrectos</p>
     </form>
     <a href="recuperar.html" class="login-forgot-pass">Olvidaste contraseña?</a>
     <a href="newUser.html" class="login-new-user"> Crear nuevo usuario</a>
