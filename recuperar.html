@@ -20,15 +20,16 @@
             <a href="index.html" class="fa fa-arrow-left"></a>
         </button>
     </div>
-    <form class="login-form">
+    <form action="#" class="login-form">
         <p class="login-text">
             <span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-lock fa-stack-1x"></i>
           </span>
         </p>
-        <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
-        <input type="submit" name="Login" value="Recuperar" class="login-submit" />
+        <input type="email" class="login-username" autofocus="true" placeholder="Email" id="recupEmail" />
+        <input type="submit" name="Login" value="Recuperar" class="login-submit" id="recuperar" />
+        <p class="login-text" id="mensajeErrorMail">Usuario invalido</p>
     </form>
     <a href="login.html" class="login-new-user"> Ya tienes usuario? Log-in</a>
     <div class="underlay-photo"></div>
