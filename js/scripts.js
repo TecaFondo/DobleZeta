@@ -52,11 +52,18 @@ $("#crearUsr").click(function() {
                 alert("Nuevo usuario creado");
             } else {
                 $("#mensajeErrorPass").show();
-
             }
         }
     } else {
         $("mensajeError1").show();
+    }
+})
+$("#mensajeErrorMail").hide()
+$("#recuperar").click(function() {
+    if (IsEmail($("#recupEmail").val())) {
+        $("#mensajeErrorMail").hide();
+    } else {
+        $("#mensajeErrorMail").show();
     }
 })
 

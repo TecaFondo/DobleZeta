@@ -537,17 +537,6 @@ input {
     overflow: hidden;
 }
 
-#mensajeError,
-#mensajeError1,
-#mensajeErrorPass {
-    color: #ff0000;
-    font-family: "Josefine Sans, cursive";
-    font-size: 1rem;
-    background-color: #333333d0;
-}
-
-
-/*
 input ::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
@@ -574,7 +563,7 @@ input:focus ::-moz-placeholder {
 
 input:focus :-ms-input-placeholder {
     color: rgba(0, 0, 0, 0.7);
-}*/
+}
 
 .login-form {
     min-height: 10rem;
@@ -687,4 +676,14 @@ input:focus :-ms-input-placeholder {
 .underlay-black {
     background: rgba(0, 0, 0, 0.7);
     z-index: -1;
+}
+
+#mensajeError,
+#mensajeError1,
+#mensajeErrorPass,
+#mensajeErrorMail {
+    color: #ff0000;
+    font-family: "Josefine Sans, cursive";
+    font-size: 1rem;
+    background-color: #333333d0;
 }
