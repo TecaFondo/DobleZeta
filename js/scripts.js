@@ -86,7 +86,6 @@ formulario.addEventListener('submit', (e) => {
     }
 });
 
-
 myID = document.getElementById("flechitaMenu");
 var myScrollFunc = function() {
     var y = window.scrollY;
