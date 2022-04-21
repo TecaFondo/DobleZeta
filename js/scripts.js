@@ -2,6 +2,7 @@ const formulario = document.getElementById('formulario');
 
 $("#mensajeError1").hide();
 
+//Funcion encargada de enviar correo a smtp
 function sendEmail(email, mensaje) {
     Email.send({
 
@@ -17,6 +18,7 @@ function sendEmail(email, mensaje) {
     );
 }
 
+//Se verifica el correo ingresado
 function IsEmail(email) {
     var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (!regex.test(email)) {
@@ -25,6 +27,8 @@ function IsEmail(email) {
         return true;
     }
 }
+
+//validadores de inicio de sesion
 $("#mensajeError").hide();
 $("#mensajeErrorPass").hide();
 $("#loginBTN").click(function() {
@@ -40,6 +44,8 @@ $("#loginBTN").click(function() {
         $("#mensajeError").show();
     }
 });
+
+//validador de creacion de usuarios
 $("#crearUsr").click(function() {
     var correo = $("#newcorreo").val();
 
@@ -58,6 +64,8 @@ $("#crearUsr").click(function() {
         $("mensajeError1").show();
     }
 })
+
+//validacion de correo de recuperacion
 $("#mensajeErrorMail").hide()
 $("#recuperar").click(function() {
     if (IsEmail($("#recupEmail").val())) {
@@ -67,6 +75,7 @@ $("#recuperar").click(function() {
     }
 })
 
+//se encarga de validar correo, obtener info de textfield y enviar correo.
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     var email = document.getElementById("EntradaMail").value;
@@ -87,6 +96,28 @@ formulario.addEventListener('submit', (e) => {
 });
 
 
+
+var request = {
+    placeId: 'ChIJff405eHPYpYR-3wCBkWbGEQ'
+};
+
+var service = new google.maps.places.PlacesService(map); // map se usa igual que para poner el mapa
+
+service.getDetails(request, function(place, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        console.log(place.reviews); //esto imprime en la consola las reviews 
+    }
+});
+
+/*let jsonFile = require('jsonfile');
+
+for (i = 0; i < 11; i++) {
+    jsonFile.writeFile('loop.json', "id :" + i + " square :" + i * i);
+}*/
+
+
+
+//encargado de controlar flechita BTT.
 myID = document.getElementById("flechitaMenu");
 var myScrollFunc = function() {
     var y = window.scrollY;
