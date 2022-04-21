@@ -28,6 +28,30 @@ function IsEmail(email) {
     }
 }
 
+function initMap() {
+    var coord = { lat: -33.4003076, lng: -70.5570257 };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: coord
+    });
+    var marker = new google.maps.Marker({
+        position: coord,
+        map: map
+    });
+
+    var request = {
+        placeId: 'ChIJff405eHPYpYR-3wCBkWbGEQ'
+    };
+    var service = new google.maps.places.PlacesService(map); // map se usa igual que para poner el mapa
+
+    service.getDetails(request, function(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            console.log(place.reviews); //esto imprime en la consola las reviews 
+        }
+    });
+}
+
+
 //validadores de inicio de sesion
 $("#mensajeError").hide();
 $("#mensajeErrorPass").hide();
@@ -97,17 +121,6 @@ formulario.addEventListener('submit', (e) => {
 
 
 
-var request = {
-    placeId: 'ChIJff405eHPYpYR-3wCBkWbGEQ'
-};
-
-var service = new google.maps.places.PlacesService(map); // map se usa igual que para poner el mapa
-
-service.getDetails(request, function(place, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-        console.log(place.reviews); //esto imprime en la consola las reviews 
-    }
-});
 
 /*let jsonFile = require('jsonfile');
 
