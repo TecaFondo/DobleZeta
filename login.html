@@ -20,14 +20,14 @@
             <a href="index.html" class="fa fa-arrow-left"></a>
         </button>
     </div>
-    <form class="login-form" action="#">
+    <form class="login-form" onSubmit="return false;">
         <p class="login-text">
             <span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-lock fa-stack-1x"></i>
           </span>
         </p>
-        <input type="email" class="login-username" autofocus="true" placeholder="Email" id="correo" />
+        <input type="email" class="login-username" placeholder="Email" id="correo" />
         <input type="password" class="login-password" placeholder="Contraseña" id="pass" />
         <input type="submit" name="loginBTN" value="Login" class="login-submit" id="loginBTN" />
         <p class="login-text" id="mensajeError">Usuario o contraseña incorrectos</p>
