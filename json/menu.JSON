@@ -1,0 +1,8 @@
+{
+    "producto": {
+        "id": "#",
+        "nombre": "<h3> Pizza </h3>",
+        "descripcion": "<p>ingredientes y cosas</p>",
+        "valor": "$8.000"
+    }
+}
