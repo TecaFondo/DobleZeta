@@ -53,7 +53,7 @@ function initMap() {
 
 //Se encarga de cargar elementos al menu de comidas
 $("menu.html").ready(function() {
-    fetch("./json/menu.json")
+    fetch("json/menu.json")
         .then(Response => Response.json())
         .then(data => {
 
