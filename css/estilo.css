@@ -267,7 +267,9 @@ footer {
         font-size: 6vw;
     }
     .platillo p {
+        padding: 10px;
         font-size: 3vw;
+        text-align: justify;
     }
     .platillo img {
         width: 230px;
