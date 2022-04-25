@@ -49,7 +49,33 @@ function initMap() {
             console.log(place.reviews); //esto imprime en la consola las reviews 
         }
     });
-}
+};
+
+//Se encarga de cargar elementos al menu de comidas
+$("menu.html").ready(function() {
+    fetch("./json/menu.json")
+        .then(Response => Response.json())
+        .then(data => {
+
+            $.each(data.pizzas, (function(i, item) {
+                $("#pizzaP").append('<div class="platillo">' + item.foto + item.nombre + item.descripcion + '<div class="precio">' + item.precio + '</div>' + '</div>');
+            }));
+
+            $.each(data.sandwiches, (function(i, item) {
+                $("#sandwichP").append('<div class="platillo">' + item.foto + item.nombre + item.descripcion + '<div class="precio">' + item.precio + '</div>' + '</div>');
+            }));
+            $.each(data.cafeteria, (function(i, item) {
+                $("#cafeteriaP").append('<div class="platillo">' + item.foto + item.nombre + item.descripcion + '<div class="precio">' + item.precio + '</div>' + '</div>');
+            }));
+            $.each(data.plato, (function(i, item) {
+                $("#platoP").append('<div class="platillo">' + item.foto + item.nombre + item.descripcion + '<div class="precio">' + item.precio + '</div>' + '</div>');
+            }));
+            $.each(data.bebidas, (function(i, item) {
+                $("#bebidaP").append('<div class="platillo">' + item.foto + item.nombre + item.descripcion + '<div class="precio">' + item.precio + '</div>' + '</div>');
+            }));
+
+        })
+});
 
 
 //validadores de inicio de sesion
@@ -118,17 +144,6 @@ formulario.addEventListener('submit', (e) => {
         return false;
     }
 });
-
-
-
-
-/*let jsonFile = require('jsonfile');
-
-for (i = 0; i < 11; i++) {
-    jsonFile.writeFile('loop.json', "id :" + i + " square :" + i * i);
-}*/
-
-
 
 //encargado de controlar flechita BTT.
 myID = document.getElementById("flechitaMenu");
