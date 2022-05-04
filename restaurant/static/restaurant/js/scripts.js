@@ -53,7 +53,7 @@ function initMap() {
 
 //Se encarga de cargar elementos al menu de comidas
 $("menu.html").ready(function() {
-    fetch("https://raw.githubusercontent.com/TecaFondo/DobleZeta/main/json/menu.JSON")
+    fetch("https://raw.githubusercontent.com/TecaFondo/DobleZeta/main/restaurant/static/restaurant/json/menu.JSON")
         .then(Response => Response.json())
         .then(data => {
 
