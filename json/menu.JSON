@@ -1,70 +1,70 @@
 {
     "pizzas": [{
             "id": "#",
-            "foto": " <img src='img/pizza1.jpg' alt='Pizza' width='300'>",
+            "foto": " <img src='/static/restaurant/img/pizza1.jpg' alt='Pizza' width='300'>",
             "nombre": "<h3> Pizza Pepperoni </h3>",
             "descripcion": "<p>Deliciosa pizza artesanal horneada a la piedra con queso Mozzarela y finas láminas de pepperoni americano. Para servir o llevar.</p>",
             "precio": "$6.600"
         },
         {
             "id": "#",
-            "foto": " <img src='img/pizza2.jpg' alt='Pizza' width='300'>",
+            "foto": " <img src='/static/restaurant/img/pizza2.jpg' alt='Pizza' width='300'>",
             "nombre": "<h3> Pizza Serrna con Rúcula </h3>",
             "descripcion": "<p>Deliciosa masa artesanal, salsa casera de tomates cubierta de quesos Mozzarella y Gouda, y tomate picado con un toque de orégano. Se agregan finas láminas de jamón serrano, rucula fresca y queso parmesano reggiano rallado grueso, un toque de aceite de oliva y sal para condimetnar.</p>",
             "precio": "$10.900"
         },
         {
             "id": "#",
-            "foto": " <img src='img/pizza3.jpg' alt='Pizza' width='300'>",
+            "foto": " <img src='/static/restaurant/img/pizza3.jpg' alt='Pizza' width='300'>",
             "nombre": "<h3> Pizza Margarita </h3>",
             "descripcion": "<p>Crujiente masa de elaoración propia, horneada a la piedra, con salsa de tomate casero y quesos Mozzarella y Gouda, tomates frescos picados con un toque de orégano y sal, adornada con hojas de albahaca frescas. Para sirvir o llevar.</p>",
             "precio": "$6.400"
         },
         {
             "id": "#",
-            "foto": " <img src='img/pizza2.jpg' alt='Pizza' width='300'>",
+            "foto": " <img src='/static/restaurant/img/pizza2.jpg' alt='Pizza' width='300'>",
             "nombre": "<h3> Pizza Napolitana </h3>",
             "descripcion": "<p>Tradicional masa delgada horneada a la piedra, salsa casera de tomates, todo cubierto con una mezcla de quesos Mozzarella y Gouda, tomates frescos picados, n toque de orégano y sal, adonada con aceiunasnegras. Para servir o llevar.</p>",
             "precio": "$6.400"
         },
         {
             "id": "#",
-            "foto": " <img src='img/pizza1.jpg' alt='Pizza' width='300'>",
+            "foto": " <img src='/static/restaurant/img/pizza1.jpg' alt='Pizza' width='300'>",
             "nombre": "<h3> Pizza Funhgui (Champiñones) </h3>",
             "descripcion": "<p>Delicada Masa horneada a la piedra, nuestra salsa de tomates casera y mezcla de quesos Mozzarella y Gouda, tomates frescos picados, un toque de orégano y sal, aceitunas cortadas en rodajas y champiñones Paris frescos, cortados en laminas. Para servir o llevar.</p>",
             "precio": "$8.000"
         },
         {
             "id": "#",
-            "foto": " <img src='img/pizza3.jpg' alt='Pizza' width='300'>",
+            "foto": " <img src='/static/restaurant/img/pizza3.jpg' alt='Pizza' width='300'>",
             "nombre": "<h3> Pizza Desmechada </h3>",
             "descripcion": "<p>Con nuestra tradcicional base de masa horneada a la piedra, salsa casera de tomates, tomates frescos picados aromatizados con un toque de orégano y nuestra preparación de carne desmechada preparada con pimiento Morrón y cebollas, y adornada con aceitunas negras.</p>",
             "precio": "$11.300"
         },
         {
             "id": "#",
-            "foto": " <img src='img/pizza1.jpg' alt='Pizza' width='300'>",
+            "foto": " <img src='/static/restaurant/img/pizza1.jpg' alt='Pizza' width='300'>",
             "nombre": "<h3> Pizza Americana </h3>",
             "descripcion": "<p>A nuestra tradicional base de pizza le agregamos tomates y pimientos frescos picados, aromatizados con un toque de orégano, y nuestra receta de carne de hamburguesa asada con salsa barbacoa. Para servir o llevar.</p>",
             "precio": "$9.800"
         },
         {
             "id": "#",
-            "foto": " <img src='img/pizza2.jpg' alt='Pizza' width='300'>",
+            "foto": " <img src='/static/restaurant/img/pizza2.jpg' alt='Pizza' width='300'>",
             "nombre": "<h3> Pizza Hawaiana </h3>",
             "descripcion": "<p>Pizza a la piedra con trocitos de tocino ahumado o jamón y piña fresca. Para servir o llevar.</p>",
             "precio": "$9.550"
         },
         {
             "id": "#",
-            "foto": " <img src='img/pizza3.jpg' alt='Pizza' width='300'>",
+            "foto": " <img src='/static/restaurant/img/pizza3.jpg' alt='Pizza' width='300'>",
             "nombre": "<h3> Pizza Toscana </h3>",
             "descripcion": "<p>Nuestra crujiente pizza a la piedra con salsa casera de tomates, quesos Mozzarella y Gouda, tomates frescos picados, aromatizados con un toue de orégano trocitos de jamón pierna y aceitunas negras cortadas en rodajas. Para servir o llevar.</p>",
             "precio": "$8.000"
         },
         {
             "id": "#",
-            "foto": " <img src='img/pizza1.jpg' alt='Piiza' width='300'>",
+            "foto": " <img src='/static/restaurant/img/pizza1.jpg' alt='Piiza' width='300'>",
             "nombre": "<h3> Pizza Base </h3>",
             "descripcion": "<p>Pizza artesanal a base de masa horneada a la piedra, salsa casera de tomates, cubierta de una mezcla de quesos Mozzarella y Gouda a la que se le puede agregar los ingredientes a su gusto.Para servir o llevar.</p>",
             "precio": "$5.000"
