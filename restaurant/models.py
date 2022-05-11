@@ -12,7 +12,6 @@ class Comida(models.Model):
 
     def __str__(self):
         return self.tipoProducto
-
 #Fin Modelo para comidas
 
 #tipos de producto
@@ -26,3 +25,4 @@ class Producto(models.Model):
     
     def __str__(self):
         return self.cod_prod
+#fin tipos de producto
