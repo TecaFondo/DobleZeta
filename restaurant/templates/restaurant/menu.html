@@ -73,6 +73,33 @@
     </div>
     <main>
 
+        <table>
+            <tr>
+                <th>
+                    nombre
+                </th>
+                <th>
+                    descripcion
+                </th>
+                <th>
+                    precio
+                </th>
+            </tr>
+            {% for prod in productos%}
+            <tr>
+                <td>
+                    {{prod.nombre}}
+                </td>
+                <td>
+                    {{prod.descripcion}}
+                </td>
+                <td>
+                    {{prod.precio}}
+                </td>
+            </tr>
+            {%endfor%}
+        </table>
+
         <section id="pizzas">
             <h2>Pizzas</h2>
             <div class="platillos" id="pizzaP"></div>

@@ -17,12 +17,12 @@ class Comida(models.Model):
 #tipos de producto
 
 class Producto(models.Model):
-    cod_prod= models.IntegerField(max_length=5, primary_key=True, verbose_name='id producto')
+    cod_prod= models.IntegerField( primary_key=True, verbose_name='id producto')
     nombre=models.CharField(max_length=25,verbose_name='Nombre Produtcto')
     desc= models.CharField(max_length=144, verbose_name="Descripcion")
-    precio= models.IntegerField(max_length=6,verbose_name='precio')
+    precio= models.IntegerField(verbose_name='precio')
     img=models.CharField(max_length=50,verbose_name='Ruta a imagen')
     
-    def __str__(self):
+    def __int__(self):
         return self.cod_prod
 #fin tipos de producto
