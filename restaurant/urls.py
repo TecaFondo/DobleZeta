@@ -1,5 +1,5 @@
-from cgitb import html
-from tkinter import Menu
+#from cgitb import html
+#from tkinter import Menu
 from django.urls import path
 from .views import menu, index, login, newUser, recuperar
 
