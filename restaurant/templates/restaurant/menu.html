@@ -82,6 +82,9 @@
                     descripcion
                 </th>
                 <th>
+                    imagen
+                </th>
+                <th>
                     precio
                 </th>
             </tr>
@@ -91,7 +94,10 @@
                     {{prod.nombre}}
                 </td>
                 <td>
-                    {{prod.descripcion}}
+                    {{prod.desc}}
+                </td>
+                <td>
+                    <img src="{{prod.img}}" alt="{{BASE_DIR}}/{{prod.img}}" width="250" height="250">
                 </td>
                 <td>
                     {{prod.precio}}
