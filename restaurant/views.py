@@ -2,11 +2,11 @@ from django.shortcuts import render
 from .models import Producto
 # Create your views hera
 def menu(request):
-    productos = Producto.objexts.all()
+    productos = Producto.objects.all()
     datos ={
         'productos':productos
     }
-    return render(request, "restaurant/menu.html")
+    return render(request, "restaurant/menu.html",datos)
 def index(request):
     return render(request,"restaurant/index.html")
 def login(request):

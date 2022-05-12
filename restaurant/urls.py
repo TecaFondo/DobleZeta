@@ -9,5 +9,6 @@ urlpatterns =[
     path('menu/', menu, name='menu'),
     path('login/', login, name='login'),
     path('newUser/', newUser, name='newUser'),
-    path('recuperar/', recuperar, name='recuperar'),    
+    path('recuperar/', recuperar, name='recuperar'), 
+    #path('form-productos',form_productos,name='form_productos'),   
 ]

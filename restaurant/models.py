@@ -21,8 +21,8 @@ class Producto(models.Model):
     nombre=models.CharField(max_length=25,verbose_name='Nombre Produtcto')
     desc= models.CharField(max_length=144, verbose_name="Descripcion")
     precio= models.IntegerField(verbose_name='precio')
-    img=models.CharField(max_length=50,verbose_name='Ruta a imagen')
+    img=models.ImageField(upload_to = 'img/',verbose_name='Imagen')
     
-    def __int__(self):
-        return self.cod_prod
+    def __str__(self):
+        return self.nombre
 #fin tipos de producto
