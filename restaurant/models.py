@@ -21,8 +21,8 @@ class Producto(models.Model):
     nombre=models.CharField(max_length=25,verbose_name='Nombre Produtcto')
     desc= models.CharField(max_length=144, verbose_name="Descripcion")
     precio= models.IntegerField(verbose_name='precio')
-    img=models.ImageField(upload_to = 'restaurant/static/restaurant/img/',verbose_name='Imagen')
-    #en linea anterior se ha cambiado la ruta para guardar documentos en la carpeta static en vez de carpeta generada por bdd
+    img=models.ImageField(upload_to = 'img/',verbose_name='Imagen')
+    
     def __str__(self):
         return self.nombre
 #fin tipos de producto
