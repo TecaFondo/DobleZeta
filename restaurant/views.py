@@ -24,7 +24,7 @@ def carga(request):
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(request.POST or None, request.FILES or None)
+        formulario = ProductoForm(request.POST or None, request.FILES or None) #se agrega request file para cargar imágenes
         if formulario.is_valid():
             formulario.save()
             datos['mensaje']='Guardados correctamente'
