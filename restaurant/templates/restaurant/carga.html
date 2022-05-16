@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +15,17 @@
 <body>
     <!--Esta pagina es para cargar datos a bdd-->
 
+    <form method="POST" action="" id="formulario" enctype="multipart/form-data">
+        {%csrf_token%}
+        <div class="form_group">
+            {{form.as_table}}
+        </div>
+        <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+        <input type="reset" class="btn btn-danger" id="limpiar" value="Limpiar">
+        <div id="error" class="alert alert-danger" role="alert">
+            {{mensaje}}
+        </div>
+    </form>
 
 
 
@@ -23,7 +35,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/db0252fb97.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&libraries=places&callback=initMap"></script>
-    <script type="text/javascript" src="{%static 'restaurant/js/scripts.js'%}"></script>
+    <!--<script type="text/javascript" src="{%static 'restaurant/js/scripts.js'%}"></script>-->
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
 
