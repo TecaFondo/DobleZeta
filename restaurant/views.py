@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from turtle import delay
+from django.shortcuts import redirect, render
 from .forms import ProductoForm
 from restaurant.forms import ProductoForm
 from .models import Producto
@@ -18,7 +19,11 @@ def recuperar(request):
 def newUser(request):
     return render(request,"restaurant/newUser.html")
 def vista_admin(request):
-    return render(request, "restaurant/vista_admin.html")
+    productos = Producto.objects.all()
+    datos ={
+        'productos':productos
+    }
+    return render(request, "restaurant/vista_admin.html",datos)
 def carga(request):
     datos={
         'form':ProductoForm()
@@ -39,4 +44,16 @@ def form_mod_producto(request,id):
         'form':ProductoForm(instance=producto)
     }
 
+    if(request.method == 'POST'):
+        formulario = ProductoForm(request.POST or None, request.FILES or None, instance=producto)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje']='Modificados correctamente'
+            return redirect(vista_admin)
+        datos['mensaje']='NO se ha podido modificar datos'
     return render(request,'restaurant/editar.html',datos)
+
+def form_del_producto(request,id):
+    producto=Producto.objects.get(cod_prod=id)
+    producto.delete()
+    return redirect(to='index')
