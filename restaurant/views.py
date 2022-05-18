@@ -17,7 +17,8 @@ def recuperar(request):
     return render(request,"restaurant/recuperar.html")
 def newUser(request):
     return render(request,"restaurant/newUser.html")
-
+def vista_admin(request):
+    return render(request, "restaurant/vista_admin.html")
 def carga(request):
     datos={
         'form':ProductoForm()
@@ -31,3 +32,11 @@ def carga(request):
         else:
             datos['mensaje']='no se ha guardado uwu'
     return render(request,'restaurant/carga.html',datos)
+
+def form_mod_producto(request,id):
+    producto=Producto.objects.get(cod_prod=id)
+    datos={
+        'form':ProductoForm(instance=producto)
+    }
+
+    return render(request,'restaurant/editar.html',datos)
