@@ -694,3 +694,11 @@ input:focus :-ms-input-placeholder {
     height: 500px;
     width: 100%;
 }
+
+#formulario {
+    margin: 2vh;
+    padding: 2vh;
+    justify-content: center;
+}
+
+#id_cod_prod {}

@@ -1,8 +1,8 @@
 from turtle import delay
 from django.shortcuts import redirect, render
-from .forms import ProductoForm
 from restaurant.forms import ProductoForm
-from .models import Producto
+from restaurant.forms import ProductoForm
+from restaurant.models import Producto
 # Create your views hera
 def menu(request):
     productos = Producto.objects.all()
