@@ -2,7 +2,7 @@
 #from tkinter import Menu
 from unicodedata import name
 from django.urls import path
-from .views import menu, index, login, newUser, recuperar,carga, form_mod_producto,vista_admin,form_del_producto
+from restaurant.views import menu, index, login, newUser, recuperar,carga, form_mod_producto,vista_admin,form_del_producto
 from django.conf import settings
 from django.conf.urls.static import static
 
