@@ -13,8 +13,8 @@ from rest_comidas.serializers import ProductoSerializer
 @api_view(['GET','POST'])
 def list_productos(request):
     if request.method =='GET':
-        listaProductos = Producto.objects.all()
-        serializer= ProductoSerializer(listaProductos, many =True)
+        listProductos = Producto.objects.all()
+        serializer= ProductoSerializer(listProductos, many =True)
         return Response(serializer.data)
     elif request.method == 'POST':
         dataP = JSONParser().parse(request)
