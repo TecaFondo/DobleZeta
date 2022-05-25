@@ -5,9 +5,9 @@ from restaurant.forms import ProductoForm
 from restaurant.models import Producto
 # Create your views hera
 def menu(request):
-    productos = Producto.objects.all()
+    listaProductos = Producto.objects.all()
     datos ={
-        'productos':productos
+        'productos':listaProductos
     }
     return render(request, "restaurant/menu.html",datos)
 def index(request):
