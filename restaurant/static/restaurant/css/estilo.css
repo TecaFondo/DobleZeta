@@ -701,4 +701,30 @@ input:focus :-ms-input-placeholder {
     justify-content: center;
 }
 
-#id_cod_prod {}
+
+.fondolista {
+    width: 100%;
+    height: 10px 0px;
+    background-image: url('../img/fondolista.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0;
+}
+
+.fondotablaagregar {
+    width: 30%;
+    height: 30%;
+    background: #13141de6;
+    margin: auto;
+    padding: 10%;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin-top: 5em;
+    color: #ffcb69;
+    border-color: #f4a261;
+    box-shadow: 8px 12px 15px 8px #f4a261, 8px 50px 50px 8px #f4a261;
+}
+
+svg {
+    width: 50%;
+}
+
