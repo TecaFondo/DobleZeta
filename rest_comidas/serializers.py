@@ -1,8 +1,7 @@
-from django import forms
-from django.forms import ModelForm
+from rest_framework import serializers
 from restaurant.models import Producto
 
-class ProductoForm(ModelForm):
+class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
         fields = ['cod_prod','nombre', 'desc', 'precio','img','categoria']
