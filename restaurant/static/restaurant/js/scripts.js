@@ -87,6 +87,7 @@ $("#loginBTN").click(function() {
         if ($("#pass").val() != "") {
             $("#mensajeError").hide();
             alert("inicio sesion exitoso");
+            $(location).prop('href', 'http://127.0.0.1:8000/vista_admin/')
         } else {
             $("#mensajeError").show();
         }
