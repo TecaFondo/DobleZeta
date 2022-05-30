@@ -5,6 +5,7 @@ from restaurant.forms import ProductoForm
 from restaurant.models import Producto
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 # Create your views hera
 def menu(request):
     listaProductos = Producto.objects.all()
@@ -66,5 +67,5 @@ def form_mod_producto(request,id):
 def form_del_producto(request,id):
     producto=Producto.objects.get(cod_prod=id)
     producto.delete()
-    return redirect(to='index')
+    return redirect(to='vista_admin')
 
