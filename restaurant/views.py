@@ -3,6 +3,8 @@ from django.shortcuts import redirect, render
 from restaurant.forms import ProductoForm
 from restaurant.forms import ProductoForm
 from restaurant.models import Producto
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 # Create your views hera
 def menu(request):
     listaProductos = Producto.objects.all()
@@ -12,7 +14,15 @@ def menu(request):
     return render(request, "restaurant/menu.html",datos)
 def index(request):
     return render(request,"restaurant/index.html")
-def login(request):
+
+def login(request): #implementar cifrado sha256
+    ##username = request.POST['username']
+    #password = request.POST['password']
+    #user = authenticate(request,username=username,password=password)
+    #if user is not None:
+        #login(request,user)
+        #return redirect(vista_admin)
+    #else:
     return render(request,"restaurant/login.html")
 def recuperar(request):
     return render(request,"restaurant/recuperar.html")
@@ -57,3 +67,4 @@ def form_del_producto(request,id):
     producto=Producto.objects.get(cod_prod=id)
     producto.delete()
     return redirect(to='index')
+
