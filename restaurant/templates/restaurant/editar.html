@@ -13,6 +13,11 @@
 </head>
 
 <body class="fondolista">
+    <div class="fixed-bottom show" id="flechita">
+        <button class="btn btn-dark" id="flecha">
+            <a href="{% url 'vista_admin'%}" class="fa fa-arrow-left"></a>
+        </button>
+    </div>
     <!--Esta pagina es para editar prodcutos de la bdd-->
     <form method="POST" action="" id="formulario" enctype="multipart/form-data">
         {%csrf_token%}

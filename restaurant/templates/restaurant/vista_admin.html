@@ -13,6 +13,11 @@
 </head>
 
 <body>
+    <div class="fixed-bottom show" id="flechita">
+        <button class="btn btn-dark" id="flecha">
+            <a href="{% url 'carga'%}" class="fa fa-plus"></a>
+        </button>
+    </div>
     <div class="fondolista">
         <table border="1" class="fondotablaagregar">Lista de prodcutos
             <tr>
@@ -60,6 +65,8 @@
             </tr>
 
         </table>
+
+        <a href="{% url 'index'%}"> Cerrar sesión</a>
 
 
         <!--Siempre se declaran estos 3 al final del HTML (se debe mantener el orden)-->
