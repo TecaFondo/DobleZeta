@@ -1,0 +1,386 @@
+{
+    "pizzas": [{
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/pizza1.jpg' alt='Pizza' width='300'>",
+            "nombre": "<h3> Pizza Pepperoni </h3>",
+            "descripcion": "<p>Deliciosa pizza artesanal horneada a la piedra con queso Mozzarela y finas láminas de pepperoni americano. Para servir o llevar.</p>",
+            "precio": "$6.600"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/pizza2.jpg' alt='Pizza' width='300'>",
+            "nombre": "<h3> Pizza Serrna con Rúcula </h3>",
+            "descripcion": "<p>Deliciosa masa artesanal, salsa casera de tomates cubierta de quesos Mozzarella y Gouda, y tomate picado con un toque de orégano. Se agregan finas láminas de jamón serrano, rucula fresca y queso parmesano reggiano rallado grueso, un toque de aceite de oliva y sal para condimetnar.</p>",
+            "precio": "$10.900"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/pizza3.jpg' alt='Pizza' width='300'>",
+            "nombre": "<h3> Pizza Margarita </h3>",
+            "descripcion": "<p>Crujiente masa de elaoración propia, horneada a la piedra, con salsa de tomate casero y quesos Mozzarella y Gouda, tomates frescos picados con un toque de orégano y sal, adornada con hojas de albahaca frescas. Para sirvir o llevar.</p>",
+            "precio": "$6.400"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/pizza2.jpg' alt='Pizza' width='300'>",
+            "nombre": "<h3> Pizza Napolitana </h3>",
+            "descripcion": "<p>Tradicional masa delgada horneada a la piedra, salsa casera de tomates, todo cubierto con una mezcla de quesos Mozzarella y Gouda, tomates frescos picados, n toque de orégano y sal, adonada con aceiunasnegras. Para servir o llevar.</p>",
+            "precio": "$6.400"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/pizza1.jpg' alt='Pizza' width='300'>",
+            "nombre": "<h3> Pizza Funhgui (Champiñones) </h3>",
+            "descripcion": "<p>Delicada Masa horneada a la piedra, nuestra salsa de tomates casera y mezcla de quesos Mozzarella y Gouda, tomates frescos picados, un toque de orégano y sal, aceitunas cortadas en rodajas y champiñones Paris frescos, cortados en laminas. Para servir o llevar.</p>",
+            "precio": "$8.000"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/pizza3.jpg' alt='Pizza' width='300'>",
+            "nombre": "<h3> Pizza Desmechada </h3>",
+            "descripcion": "<p>Con nuestra tradcicional base de masa horneada a la piedra, salsa casera de tomates, tomates frescos picados aromatizados con un toque de orégano y nuestra preparación de carne desmechada preparada con pimiento Morrón y cebollas, y adornada con aceitunas negras.</p>",
+            "precio": "$11.300"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/pizza1.jpg' alt='Pizza' width='300'>",
+            "nombre": "<h3> Pizza Americana </h3>",
+            "descripcion": "<p>A nuestra tradicional base de pizza le agregamos tomates y pimientos frescos picados, aromatizados con un toque de orégano, y nuestra receta de carne de hamburguesa asada con salsa barbacoa. Para servir o llevar.</p>",
+            "precio": "$9.800"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/pizza2.jpg' alt='Pizza' width='300'>",
+            "nombre": "<h3> Pizza Hawaiana </h3>",
+            "descripcion": "<p>Pizza a la piedra con trocitos de tocino ahumado o jamón y piña fresca. Para servir o llevar.</p>",
+            "precio": "$9.550"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/pizza3.jpg' alt='Pizza' width='300'>",
+            "nombre": "<h3> Pizza Toscana </h3>",
+            "descripcion": "<p>Nuestra crujiente pizza a la piedra con salsa casera de tomates, quesos Mozzarella y Gouda, tomates frescos picados, aromatizados con un toue de orégano trocitos de jamón pierna y aceitunas negras cortadas en rodajas. Para servir o llevar.</p>",
+            "precio": "$8.000"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/pizza1.jpg' alt='Piiza' width='300'>",
+            "nombre": "<h3> Pizza Base </h3>",
+            "descripcion": "<p>Pizza artesanal a base de masa horneada a la piedra, salsa casera de tomates, cubierta de una mezcla de quesos Mozzarella y Gouda a la que se le puede agregar los ingredientes a su gusto.Para servir o llevar.</p>",
+            "precio": "$5.000"
+        }
+    ],
+    "sandwiches": [{
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Sandwiches' width='300'>",
+            "nombre": "<h3> Sandwich ave palta </h3>",
+            "descripcion": "<p>Finas tiritas de pechuga de pollo grilladas y palta hass molida o fileteada.</p>",
+            "precio": "$6.900"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Sandwiches' width='300'>",
+            "nombre": "<h3> Sandwich Vegetariano </h3>",
+            "descripcion": "<p>Queso fresco, lechuga, tomate y palta.</p>",
+            "precio": "$8.150"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Sandwiches' width='300'>",
+            "nombre": "<h3> Salmon ahumado en bagel </h3>",
+            "descripcion": "<p>Con queso crema, alcaparras, lechuga y cebolla.</p>",
+            "precio": "$8.600"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Sandwiches' width='300'>",
+            "nombre": "<h3> Lomito DobleZeta </h3>",
+            "descripcion": "<p>Láminas de lomo de cerdo asado a la plancha, tomate, chucrut y mayonesa DobleZeta. Acompañado de papas fritas.</p>",
+            "precio": "$13.100"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Sandwiches' width='300'>",
+            "nombre": "<h3> Doblezeta Steack and Fries </h3>",
+            "descripcion": "<p>Churrasco de filete, tocino, crispy, queso fundido, huevo frito, cebolla acompañado de papas fritas.</p>",
+            "precio": "$13.100"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Sandwiches' width='300'>",
+            "nombre": "<h3> Doblezeta Steack and Fries </h3>",
+            "descripcion": "<p>DZ burguer con queso fundido, cebolla, pepinillos, ketchup, mayonesa DZ y papas fritas.</p>",
+            "precio": "$10.400"
+        }
+    ],
+    "cafeteria": [{
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Expresso </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$1.800"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Expresso </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$1.800"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Cortado </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$2.500"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Americano </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$1.900"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Cafe Latte </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$2.800"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Cappuccino </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$25.800"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Cafe Moka </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$3.000"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Chocolate Caliente </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$2.800"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Cafe Istantaneo </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$1.600"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Té Nacional </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$1.600"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Té importado </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$2.000"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Inf. de Hiervas </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$3.300"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Café Helado </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$4.500"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Cafeteria' width='300'>",
+            "nombre": "<h3> Leche con Frutas </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$4.300"
+        }
+    ],
+    "plato": [{
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Pollo a la Plancha </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$5.000"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Lomito a la Plancha </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$5.200"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Churrasco a la Plancha </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$5.300"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> hamburguesa a la Plancha </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$5.300"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Salmon Ahumado </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$7.000"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Lomo de atun grillado</h3>",
+            "descripcion": "<p></p>",
+            "precio": "$8.100"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Salmon Fresco Grillado </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$7.200"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Suprema de pollo </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$5.600"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Mechada </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$6.800"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Filete a la plancha </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$7.500"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Sopa del Día </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$3.900"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Ensalada Cesar </h3>",
+            "descripcion": "<p>Lechuga tomate, queso parmesano rallado crutones y aderezo casar(con anchoas).</p>",
+            "precio": "$4.900"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Ensalada naturista </h3>",
+            "descripcion": "<p>Queso fresco, huevo, tomate, palta, porotitos verdes y choclo.</p>",
+            "precio": "$8.800"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Al plato' width='300'>",
+            "nombre": "<h3> Ensalada vegana </h3>",
+            "descripcion": "<p>Tomate,palta,porotos verdes (o habas), lechuga, palmitos y choclo.</p>",
+            "precio": "$7.600"
+        }
+    ],
+    "bebidas": [{
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Bebidas' width='300'>",
+            "nombre": "<h3> Bebidas en lata </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$1.500"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Bebida' width='300'>",
+            "nombre": "<h3> Bebidas en botella </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$1.900"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Bebida' width='300'>",
+            "nombre": "<h3> Bebidas en lata </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$1.900"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Bebida' width='300'>",
+            "nombre": "<h3> Red Bull </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$2.900"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Bebida' width='300'>",
+            "nombre": "<h3> Agua mineral </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$1.300"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Bebida' width='300'>",
+            "nombre": "<h3> Jugos naturales </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$3.500"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Bebida' width='300'>",
+            "nombre": "<h3> Menta y Jengibre </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$4.000"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Bebida' width='300'>",
+            "nombre": "<h3> Limonada </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$3.200"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Bebida' width='300'>",
+            "nombre": "<h3> Limonada menta jengibre </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$3.700"
+        },
+        {
+            "id": "#",
+            "foto": " <img src='/static/restaurant/img/postres1.jpg'%}\" alt='Bebida' width='300'>",
+            "nombre": "<h3> Nectar </h3>",
+            "descripcion": "<p></p>",
+            "precio": "$1.350"
+        }
+
+    ]
+}
