@@ -1,7 +1,6 @@
 from turtle import delay
 from django.shortcuts import redirect, render
-from restaurant.forms import ProductoForm
-from restaurant.forms import ProductoForm
+from restaurant.forms import ProductoForm, creaUsuario
 from restaurant.models import Producto
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -28,7 +27,13 @@ def login(request): #implementar cifrado sha256
 def recuperar(request):
     return render(request,"restaurant/recuperar.html")
 def newUser(request):
-    return render(request,"restaurant/newUser.html")
+    form = creaUsuario(request.POST)
+    if form.is_valid():
+        username = form.cleaned_data.get('usuario')
+        password = form.cleaned_dataa.get('password1')
+        user = authenticate(username=username, password=password)
+        login(request,user)
+    return render(request,"restaurant/newUser.html",{'form':form})
 def vista_admin(request):
     productos = Producto.objects.all()
     datos ={
