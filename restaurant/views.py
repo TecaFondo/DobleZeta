@@ -1,10 +1,14 @@
 from turtle import delay
 from django.shortcuts import redirect, render
-from restaurant.forms import ProductoForm, creaUsuario
+from restaurant.forms import ProductoForm  #creaUsuario
 from restaurant.models import Producto
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import permission_classes
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 # Create your views hera
 def menu(request):
     listaProductos = Producto.objects.all()
@@ -40,6 +44,7 @@ def vista_admin(request):
         'productos':productos
     }
     return render(request, "restaurant/vista_admin.html",datos)
+    
 def carga(request):
     datos={
         'form':ProductoForm()

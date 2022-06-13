@@ -21,7 +21,7 @@ class Producto(models.Model):
     nombre=models.CharField(max_length=25,verbose_name='Nombre Produtcto')
     desc= models.CharField(max_length=144, verbose_name="Descripcion")
     precio= models.IntegerField(verbose_name='precio')
-    img=models.ImageField(upload_to = 'restaurant/static/restaurant/img/',verbose_name='Imagen')
+    img=models.ImageField(upload_to = 'restaurant/static/restaurant/img/',null=True,verbose_name='Imagen')
     categoria=models.ForeignKey(Comida,null=True,on_delete=models.CASCADE)
     #en linea anterior se ha cambiado la ruta para guardar documentos en la carpeta static en vez de carpeta generada por bdd
     def __str__(self):

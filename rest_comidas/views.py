@@ -41,6 +41,7 @@ def detalle_productos(request,id):
         dataP = JSONParser().parse(request)
         serializer = ProductoSerializer(producto, data = dataP)
         if serializer.is_valid():
+            producto.delete()
             serializer.save()
             return Response(serializer.data)
         else:

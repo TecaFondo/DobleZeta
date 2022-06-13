@@ -111,7 +111,18 @@
         <section id="pizzas">
             <h2>Pizzas</h2>
             <!-- Implementar for loop para cargar articulos desde bdd con sentencias sql-->
-            <div class="platillos" id="pizzaP"></div>
+            <div class="platillos" id="pizzaP">
+                {%for prod in productos %}
+                <div class="platillo">
+                    <img src="{{prod.img.url}}" alt="Foto de pizza" width="250">
+                    <h3>{{prod.nombre}}</h3>
+                    <p>{{prod.desc}}</p>
+                    <div class="precio">
+                        {{prod.precio}}
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
         </section>
         <section id="sandwiches">
             <h2>Sándwiches</h2>
