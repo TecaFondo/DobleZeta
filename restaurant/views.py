@@ -1,12 +1,14 @@
 from turtle import delay
 from django.shortcuts import redirect, render
-from restaurant.forms import ProductoForm  #creaUsuario
+from restaurant.forms import ProductoForm
 from restaurant.models import Producto
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import permission_classes
+from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 # Create your views hera
@@ -31,13 +33,20 @@ def login(request): #implementar cifrado sha256
 def recuperar(request):
     return render(request,"restaurant/recuperar.html")
 def newUser(request):
-    form = creaUsuario(request.POST)
-    if form.is_valid():
-        username = form.cleaned_data.get('usuario')
-        password = form.cleaned_dataa.get('password1')
-        user = authenticate(username=username, password=password)
-        login(request,user)
-    return render(request,"restaurant/newUser.html",{'form':form})
+    if(request.method == 'POST'):
+        print(request.POST)
+        form=request('POST')
+        if form.is_valid():
+            usernameN = form.cleaned_data.get('newcorreo')
+            passwordN = form.cleaned_dataa.get('clave1')
+            user = User.objects.create_user(username=usernameN,
+                                    email=usernameN,
+                                    password=passwordN)
+            user = authenticate(username=usernameN, password=passwordN)
+            login(request,user)
+            return HttpResponseRedirect(request('world:Profile'))
+    return render(request,"restaurant/newUser.html")
+@login_required
 def vista_admin(request):
     productos = Producto.objects.all()
     datos ={
@@ -58,7 +67,7 @@ def carga(request):
         else:
             datos['mensaje']='no se ha guardado uwu'
     return render(request,'restaurant/carga.html',datos)
-
+@login_required
 def form_mod_producto(request,id):
     producto=Producto.objects.get(cod_prod=id)
     datos={
@@ -73,7 +82,7 @@ def form_mod_producto(request,id):
             return redirect(vista_admin)
         datos['mensaje']='NO se ha podido modificar datos'
     return render(request,'restaurant/editar.html',datos)
-
+@login_required
 def form_del_producto(request,id):
     producto=Producto.objects.get(cod_prod=id)
     producto.delete()

@@ -107,6 +107,7 @@ $("#crearUsr").click(function() {
                 $("#mensajeError1").hide();
                 $("#mensajeErrorPass").hide();
                 alert("Nuevo usuario creado");
+                $(location).prop('href', 'http://127.0.0.1:8000/newUser/')
             } else {
                 $("#mensajeErrorPass").show();
             }

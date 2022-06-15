@@ -98,7 +98,7 @@
                 </td>
 
                 <td>
-                    <img src="{{prod.img.url}}" alt="Foto de pizza" width="250">
+                    <img src="/{{prod.img}}" alt="Foto de pizza" width="250">
                     <!--Se imprime imagen con ruta guardada en bdd a html (no se usa los archivos de carga de la bdd por ahora.)-->
                 </td>
                 <td>
@@ -114,7 +114,7 @@
             <div class="platillos" id="pizzaP">
                 {%for prod in productos %}
                 <div class="platillo">
-                    <img src="{{prod.img.url}}" alt="Foto de pizza" width="250">
+                    <img src="/{{prod.img}}" alt="Foto de pizza" width="250">
                     <h3>{{prod.nombre}}</h3>
                     <p>{{prod.desc}}</p>
                     <div class="precio">
