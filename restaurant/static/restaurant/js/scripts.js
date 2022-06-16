@@ -28,6 +28,7 @@ function IsEmail(email) {
     }
 }
 
+//funcion encargada de mostrar mapa de google en index de restaurant
 function initMap() {
     var coord = { lat: -33.4003076, lng: -70.5570257 };
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -86,7 +87,6 @@ $("#loginBTN").click(function() {
     if (IsEmail(correo) && correo != "") {
         if ($("#pass").val() != "") {
             $("#mensajeError").hide();
-            alert("inicio sesion exitoso");
             $(location).prop('href', 'http://127.0.0.1:8000/vista_admin/')
         } else {
             $("#mensajeError").show();
@@ -107,6 +107,7 @@ $("#crearUsr").click(function() {
                 $("#mensajeError1").hide();
                 $("#mensajeErrorPass").hide();
                 alert("Nuevo usuario creado");
+                $(location).prop('href', 'http://127.0.0.1:8000/newUser/')
             } else {
                 $("#mensajeErrorPass").show();
             }
