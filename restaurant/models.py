@@ -1,4 +1,5 @@
 from pyexpat import model
+from tabnanny import verbose
 from unittest.util import _MAX_LENGTH
 from django.db import models
 
@@ -27,3 +28,9 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 #fin tipos de producto
+
+#modelo para usuarios
+class Usuarios(models.Model):
+    usrN= models.CharField(max_length=30,verbose_name="User Name")
+    pswrdN= models.CharField(max_length=15, verbose_name="Contraseña")
+#fin modelos para usuarios

@@ -1,7 +1,7 @@
 from turtle import delay
 from django.shortcuts import redirect, render
-from restaurant.forms import ProductoForm
-from restaurant.models import Producto
+from restaurant.forms import ProductoForm,UsuariosForm
+from restaurant.models import Producto, Usuarios
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -32,20 +32,21 @@ def login(request): #implementar cifrado sha256
     return render(request,"restaurant/login.html")
 def recuperar(request):
     return render(request,"restaurant/recuperar.html")
-def newUser(request):
+def newUser(request): #se crea usuario nuevo, es necesario aplicar validaciones de campo.
+    datos={
+        'form':UsuariosForm()
+    }
     if(request.method == 'POST'):
         print(request.POST)
-        form=request('POST')
+        form=UsuariosForm(request.POST)
         if form.is_valid():
-            usernameN = form.cleaned_data.get('newcorreo')
-            passwordN = form.cleaned_dataa.get('clave1')
-            user = User.objects.create_user(username=usernameN,
-                                    email=usernameN,
-                                    password=passwordN)
+            usernameN = form.cleaned_data.get('usrN')
+            passwordN = form.cleaned_data.get('password')
+            user = User.objects.create_user(username=usernameN,email=usernameN,password=passwordN)
             user = authenticate(username=usernameN, password=passwordN)
-            login(request,user)
+            login(user)
             return HttpResponseRedirect(request('world:Profile'))
-    return render(request,"restaurant/newUser.html")
+    return render(request,"restaurant/newUser.html",datos)
 @login_required
 def vista_admin(request):
     productos = Producto.objects.all()
