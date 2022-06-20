@@ -37,14 +37,18 @@ def newUser(request): #se crea usuario nuevo, es necesario aplicar validaciones 
         'form':UsuariosForm()
     }
     if(request.method == 'POST'):
-        print(request.POST)
         form=UsuariosForm(request.POST)
         if form.is_valid():
             usernameN = form.cleaned_data.get('usrN')
-            passwordN = form.cleaned_data.get('password')
-            user = User.objects.create_user(username=usernameN,email=usernameN,password=passwordN)
-            user = authenticate(username=usernameN, password=passwordN)
-            login(user)
+            passwordN = form.cleaned_data.get('pswrdN')
+            passwordN2= form.cleaned_data.get('pswrdN2')
+            try:
+                user = User.objects.get(username = usernameN)
+            except User.DoesNotExist:
+                if(passwordN == passwordN2):
+                    user = User.objects.create_user(username=usernameN,email=usernameN,password=passwordN)
+                    user = authenticate(username=usernameN, password=passwordN)
+                    login(user)
             return HttpResponseRedirect(request('world:Profile'))
     return render(request,"restaurant/newUser.html",datos)
 @login_required
