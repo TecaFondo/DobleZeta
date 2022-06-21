@@ -2,7 +2,7 @@
 #from tkinter import Menu
 from unicodedata import name
 from django.urls import path
-from restaurant.views import menu, index, login, newUser, recuperar,carga, form_mod_producto,vista_admin,form_del_producto
+from restaurant.views import menu, index, user_login, newUser, recuperar,carga, form_mod_producto,vista_admin,form_del_producto
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -11,7 +11,7 @@ urlpatterns =[
     path('',index, name='index'),
     path('index/',index, name='index'),
     path('menu/', menu, name='menu'),
-    path('login/', login, name='login'),
+    path('login/', user_login, name='login'),
     path('newUser/', newUser, name='newUser'),
     path('recuperar/', recuperar, name='recuperar'), 
     path('carga/',carga, name='carga'),

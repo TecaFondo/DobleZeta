@@ -21,15 +21,15 @@
             <a href="{% url 'index'%}" class="fa fa-arrow-left"></a>
         </button>
     </div>
-    <form class="login-form" onSubmit="return false;">
+    <form class="login-form" method="POST">
+        {%csrf_token%}
         <p class="login-text">
             <span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-lock fa-stack-1x"></i>
           </span>
         </p>
-        <input type="email" class="login-username" placeholder="Email" id="correo" />
-        <input type="password" class="login-password" placeholder="Contraseña" id="pass" />
+        {{form.usrN}} {{form.pswrdN}}
         <input type="submit" name="loginBTN" value="Login" class="login-submit" id="loginBTN" />
         <p class="login-text" id="mensajeError">Usuario o contraseña incorrectos</p>
     </form>

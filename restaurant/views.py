@@ -22,14 +22,20 @@ def menu(request):
 def index(request):
     return render(request,"restaurant/index.html")
 
-def login(request): 
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request,username=username,password=password)
-    if user is not None:
-        login(request,user)
-        return redirect(vista_admin)
-    return render(request,"restaurant/login.html")
+def user_login(request):
+    datos={
+        'form':UsuariosForm()
+    }
+    if(request.method == 'POST'):
+        form = UsuariosForm(request.POST)
+        if form.is_valid():
+            usernameU = request.POST['usrN']
+            passwordU = request.POST['pswrdN']
+            user = authenticate(username=usernameU,password=passwordU)
+        if user is not None:
+            login(request,user)
+            return render(request, "restaurant/recuperar.html")
+    return render(request,"restaurant/login.html",datos)
 #recuperar contraseña
 def recuperar(request):
     return render(request,"restaurant/recuperar.html")
