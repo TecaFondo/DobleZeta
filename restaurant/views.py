@@ -1,3 +1,4 @@
+from tokenize import group
 from turtle import delay
 from django.shortcuts import redirect, render
 from restaurant.forms import ProductoForm,UsuariosForm
@@ -7,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import permission_classes
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.http import HttpResponseRedirect
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -21,35 +22,44 @@ def menu(request):
 def index(request):
     return render(request,"restaurant/index.html")
 
-def login(request): #implementar cifrado sha256
-    ##username = request.POST['username']
-    #password = request.POST['password']
-    #user = authenticate(request,username=username,password=password)
-    #if user is not None:
-        #login(request,user)
-        #return redirect(vista_admin)
-    #else:
+def login(request): 
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request,username=username,password=password)
+    if user is not None:
+        login(request,user)
+        return redirect(vista_admin)
     return render(request,"restaurant/login.html")
+#recuperar contraseña
 def recuperar(request):
     return render(request,"restaurant/recuperar.html")
-def newUser(request): #se crea usuario nuevo, es necesario aplicar validaciones de campo.
+
+#se crea usuario nuevo (falta realizar )
+def newUser(request): 
     datos={
         'form':UsuariosForm()
     }
     if(request.method == 'POST'):
         form=UsuariosForm(request.POST)
         if form.is_valid():
+            #obtiene los datos del usuario
             usernameN = form.cleaned_data.get('usrN')
             passwordN = form.cleaned_data.get('pswrdN')
             passwordN2= form.cleaned_data.get('pswrdN2')
             try:
+                #se verifica existencia
                 user = User.objects.get(username = usernameN)
             except User.DoesNotExist:
+                #si no existe se genera un nuevo usuario validando si es que las pswrd son identicas
                 if(passwordN == passwordN2):
                     user = User.objects.create_user(username=usernameN,email=usernameN,password=passwordN)
-                    user = authenticate(username=usernameN, password=passwordN)
-                    login(user)
-            return HttpResponseRedirect(request('world:Profile'))
+                    user = authenticate(username=usernameN, password=passwordN) #autentifican las credenciales del usuario
+                    #se asigna un grupo al usuario nuevo (default comprador)
+                    my_group = Group.objects.get(name='Comprador')
+                    my_group.usr_set.add(User.objects.get(usernameN))
+                    #se logea al usuario nuevo
+                    login(request,user)
+            return render(request, "restaurant/vista_admin.html")
     return render(request,"restaurant/newUser.html",datos)
 @login_required
 def vista_admin(request):
