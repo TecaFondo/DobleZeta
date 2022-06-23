@@ -62,7 +62,7 @@ def newUser(request):
                     user = authenticate(username=usernameN, password=passwordN) #autentifican las credenciales del usuario
                     #se asigna un grupo al usuario nuevo (default comprador)
                     my_group = Group.objects.get(name='Comprador')
-                    my_group.usr_set.add(User.objects.get(usernameN))
+                    user.groups.add(my_group)
                     #se logea al usuario nuevo
                     login(request,user)
             return render(request, "restaurant/vista_admin.html")
