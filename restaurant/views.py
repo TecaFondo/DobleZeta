@@ -1,10 +1,11 @@
+from telnetlib import LOGOUT
 from tokenize import group
 from turtle import delay
 from django.shortcuts import redirect, render
 from restaurant.forms import ProductoForm,UsuariosForm
 from restaurant.models import Producto, Usuarios
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import permission_classes
@@ -13,12 +14,21 @@ from django.http import HttpResponseRedirect
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 # Create your views hera
+
+def is_staff(user):
+    try:
+        return user.is_authenticated and user.staff is not None
+    except user.staff.DoesNotExist:
+        return False
+
+@login_required
 def menu(request):
     listaProductos = Producto.objects.all()
     datos ={
         'productos':listaProductos
     }
     return render(request, "restaurant/menu.html",datos)
+@login_required
 def index(request):
     return render(request,"restaurant/index.html")
 
@@ -32,15 +42,16 @@ def user_login(request):
             usernameU = request.POST['usrN']
             passwordU = request.POST['pswrdN']
             user = authenticate(username=usernameU,password=passwordU)
-        if user is not None:
-            login(request,user)
-            return render(request, "restaurant/recuperar.html")
+            if user is not None:
+                login(request,user)
+                return render(request, "restaurant/index.html")
     return render(request,"restaurant/login.html",datos)
 #recuperar contraseña
 def recuperar(request):
     return render(request,"restaurant/recuperar.html")
 
 #se crea usuario nuevo (falta realizar )
+
 def newUser(request): 
     datos={
         'form':UsuariosForm()
@@ -67,12 +78,15 @@ def newUser(request):
                     login(request,user)
             return render(request, "restaurant/vista_admin.html")
     return render(request,"restaurant/newUser.html",datos)
-@login_required
+
+
+@user_passes_test(is_staff)
 def vista_admin(request):
     productos = Producto.objects.all()
     datos ={
         'productos':productos
     }
+
     return render(request, "restaurant/vista_admin.html",datos)
     
 def carga(request):
@@ -109,3 +123,6 @@ def form_del_producto(request,id):
     producto.delete()
     return redirect(to='vista_admin')
 
+def cerrarsesion(request):
+    logout()
+    return redirect(user_login)
