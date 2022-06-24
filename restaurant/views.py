@@ -1,7 +1,7 @@
 from tokenize import group
 from turtle import delay
 from django.shortcuts import redirect, render
-from restaurant.forms import ProductoForm,UsuariosForm
+from restaurant.forms import ProductoForm,UsuariosForm,LoginForm
 from restaurant.models import Producto, Usuarios
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -24,17 +24,17 @@ def index(request):
 
 def user_login(request):
     datos={
-        'form':UsuariosForm()
+        'form':LoginForm()
     }
     if(request.method == 'POST'):
-        form = UsuariosForm(request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid():
             usernameU = request.POST['usrN']
             passwordU = request.POST['pswrdN']
             user = authenticate(username=usernameU,password=passwordU)
-        if user is not None:
-            login(request,user)
-            return render(request, "restaurant/recuperar.html")
+            if user is not None:
+                login(request,user)
+                return render(request, "restaurant/index.html")
     return render(request,"restaurant/login.html",datos)
 #recuperar contraseña
 def recuperar(request):
