@@ -1,4 +1,5 @@
 from dataclasses import fields
+from pyexpat import model
 from tabnanny import verbose
 from django import forms
 from django.forms import ModelForm
@@ -18,3 +19,10 @@ class UsuariosForm(ModelForm):
         #se asigna modelo y orden de aparicion en html
         model = Usuarios
         fields= ['usrN','pswrdN','pswrdN2']
+
+class LoginForm(ModelForm):
+    usrN = forms.CharField(widget=forms.EmailInput(attrs={'class':'login-username','placeholder':'Email'}),label='')
+    pswrdN = forms.CharField(widget=forms.PasswordInput(attrs={'class':'login-password','placeholder':'Contraseña'}),label='')
+    class Meta:
+        model=Usuarios
+        fields= ['usrN','pswrdN']

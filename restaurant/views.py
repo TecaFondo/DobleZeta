@@ -2,7 +2,7 @@ from telnetlib import LOGOUT
 from tokenize import group
 from turtle import delay
 from django.shortcuts import redirect, render
-from restaurant.forms import ProductoForm,UsuariosForm
+from restaurant.forms import ProductoForm,UsuariosForm,LoginForm
 from restaurant.models import Producto, Usuarios
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -34,10 +34,10 @@ def index(request):
 
 def user_login(request):
     datos={
-        'form':UsuariosForm()
+        'form':LoginForm()
     }
     if(request.method == 'POST'):
-        form = UsuariosForm(request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid():
             usernameU = request.POST['usrN']
             passwordU = request.POST['pswrdN']
