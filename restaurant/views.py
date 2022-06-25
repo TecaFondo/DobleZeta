@@ -16,10 +16,7 @@ from rest_framework.permissions import IsAuthenticated
 # Create your views hera
 
 def is_staff(user):
-    try:
-        return user.is_authenticated and user.staff is not None
-    except user.staff.DoesNotExist:
-        return False
+    return user.is_authenticated and user.Cliente
 
 @login_required
 def menu(request):
@@ -44,7 +41,7 @@ def user_login(request):
             user = authenticate(username=usernameU,password=passwordU)
             if user is not None:
                 login(request,user)
-                return render(request, "restaurant/index.html")
+                return render(request, "restaurant/recuperar.html")
     return render(request,"restaurant/login.html",datos)
 #recuperar contraseña
 def recuperar(request):

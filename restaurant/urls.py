@@ -18,7 +18,7 @@ urlpatterns =[
     path('editar/<id>',form_mod_producto,name='form_mod_producto'),
     path('vista_admin/',vista_admin,name='vista_admin'),
     path('borrar-prod/<id>',form_del_producto,name='form_del_producto'),
-    path('logout/',cerrarsesion,'cerrarsesion')
+    path('logout/',cerrarsesion, name='cerrarsesion')
     #path('form-productos',form_productos,name='form_productos'),   
 ]
 if settings.DEBUG:
