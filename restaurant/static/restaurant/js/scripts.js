@@ -117,6 +117,9 @@ $("#crearUsr").click(function() {
     }
 })
 
+
+
+
 //validacion de correo de recuperacion
 $("#mensajeErrorMail").hide()
 $("#recuperar").click(function() {
@@ -126,6 +129,8 @@ $("#recuperar").click(function() {
         $("#mensajeErrorMail").show();
     }
 })
+
+
 
 //se encarga de validar correo, obtener info de textfield y enviar correo.
 formulario.addEventListener('submit', (e) => {
