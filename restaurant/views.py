@@ -126,3 +126,6 @@ def form_del_producto(request,id):
 def cerrarsesion(request):
     logout()
     return redirect(user_login)
+
+#def googleLogin(request): #Se envia a usuario a pagina login de google (Se comenta ya que ahora no se utiliza)
+#    return render(request, 'restaurant/googleLogin.html')

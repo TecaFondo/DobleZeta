@@ -145,11 +145,14 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+#Se declaran los metodos de autenticacion de google
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend'
 ]
 
+#Se establecen los proveedores de social accounts (en este caso se usa google)
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
@@ -161,3 +164,8 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+#Se declaran los redirects al iniciar y cerrar sesion
+SITE_ID = 2
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
