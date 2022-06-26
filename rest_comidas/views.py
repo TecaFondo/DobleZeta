@@ -10,6 +10,8 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 #Se crea la api
+
+#se muestran los productos como una lista json
 @csrf_exempt
 @api_view(['GET','POST'])
 @permission_classes((IsAuthenticated,))
@@ -26,6 +28,7 @@ def list_productos(request):
             return Response(serializer.data, status = status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+#se muestra detalle de producto en especifico por ID, este se puede editar o eliminar
 @api_view(['GET','PUT','DELETE'])
 @permission_classes((IsAuthenticated,))
 def detalle_productos(request,id):
