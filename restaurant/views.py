@@ -10,9 +10,10 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import permission_classes
 from django.contrib.auth.models import User, Group
-from django.http import HttpResponseRedirect
+from django.http import HttpRequest, HttpResponseRedirect
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_comidas.viewsLogin import login as api_login
 # Create your views hera
 
 def is_staff(user):
@@ -73,6 +74,8 @@ def newUser(request):
                     user.groups.add(my_group)
                     #se logea al usuario nuevo
                     login(request,user)
+                    string='{"username":"'+usernameN+'","password":"'+passwordN+'"}'
+                    print(api_login(HttpRequest.body(string)))
             return render(request, "restaurant/vista_admin.html")
     return render(request,"restaurant/newUser.html",datos)
 
