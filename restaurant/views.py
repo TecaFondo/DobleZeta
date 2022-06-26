@@ -1,3 +1,4 @@
+from email import header
 from telnetlib import LOGOUT
 from tokenize import group
 from turtle import delay
@@ -12,8 +13,14 @@ from rest_framework.decorators import permission_classes
 from django.contrib.auth.models import User, Group
 from django.http import HttpRequest, HttpResponseRedirect
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
 from rest_comidas.viewsLogin import login as api_login
+#se importan clases de api
+import json
+from rest_framework.authtoken.models import Token
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response as apiResponse
+from rest_framework.views import APIView
+import requests
 # Create your views hera
 
 def is_staff(user):
@@ -48,8 +55,7 @@ def user_login(request):
 def recuperar(request):
     return render(request,"restaurant/recuperar.html")
 
-#se crea usuario nuevo (falta realizar )
-
+#se crea usuario nuevo y token
 def newUser(request): 
     datos={
         'form':UsuariosForm()
@@ -57,12 +63,12 @@ def newUser(request):
     if(request.method == 'POST'):
         form=UsuariosForm(request.POST)
         if form.is_valid():
-            #obtiene los datos del usuario
+            #obtiene los datos del usuario desde formulario
             usernameN = form.cleaned_data.get('usrN')
             passwordN = form.cleaned_data.get('pswrdN')
             passwordN2= form.cleaned_data.get('pswrdN2')
             try:
-                #se verifica existencia
+                #se verifica existencia del usuario
                 user = User.objects.get(username = usernameN)
             except User.DoesNotExist:
                 #si no existe se genera un nuevo usuario validando si es que las pswrd son identicas
@@ -74,9 +80,12 @@ def newUser(request):
                     user.groups.add(my_group)
                     #se logea al usuario nuevo
                     login(request,user)
-                    string='{"username":"'+usernameN+'","password":"'+passwordN+'"}'
-                    print(api_login(HttpRequest.body(string)))
-            return render(request, "restaurant/vista_admin.html")
+                    #comienzo de creacion de token
+                    body= {"username": usernameN ,"password" : passwordN} #se genera json con info de usuario creado
+                    r = requests.post('http://localhost:8000/api/login',data=json.dumps(body)) # se realiza la creacion de token
+                    print(r.text) #se imprime token en forma  de debug
+                    #fin creacion token
+                    return render(request, "restaurant/index.html")
     return render(request,"restaurant/newUser.html",datos)
 
 
@@ -124,7 +133,7 @@ def form_del_producto(request,id):
     return redirect(to='vista_admin')
 
 def cerrarsesion(request):
-    logout()
+    logout(request)
     return redirect(user_login)
 
 #def googleLogin(request): #Se envia a usuario a pagina login de google (Se comenta ya que ahora no se utiliza)
