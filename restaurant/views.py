@@ -16,11 +16,11 @@ from rest_framework.authentication import TokenAuthentication
 from rest_comidas.viewsLogin import login as api_login
 #se importan clases de api
 import json
+import requests
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response as apiResponse
 from rest_framework.views import APIView
-import requests
 # Create your views hera
 
 def is_staff(user):
