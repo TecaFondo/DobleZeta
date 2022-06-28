@@ -35,3 +35,7 @@ class Usuarios(models.Model):
     pswrdN= models.CharField(max_length=15, verbose_name="Contraseña")
     pswrdN2=models.CharField(max_length=15, verbose_name="Contraseña2")
 #fin modelos para usuarios
+
+#se crea modelo de token
+class Token(models.Model):
+    token= models.CharField()
