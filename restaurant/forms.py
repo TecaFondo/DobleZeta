@@ -32,5 +32,5 @@ class CustomLoginForm(LoginForm):
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
         super(CustomLoginForm, self).__init__(*args, **kwargs)
-        self.fields['usrN'] = forms.CharField(widget=forms.TextInput(attrs={'class':'login-username','placeholder':'Username'}),label='')
-        self.fields['pswrdN'] = forms.CharField(widget=forms.PasswordInput(attrs={'class':'login-password','placeholder':'Contraseña'}),label='')
+        self.fields['username'] = forms.CharField(widget=forms.TextInput(attrs={'class':'login-username','placeholder':'Username'}),label='')
+        self.fields['password'] = forms.CharField(widget=forms.PasswordInput(attrs={'class':'login-password','placeholder':'Contraseña'}),label='')

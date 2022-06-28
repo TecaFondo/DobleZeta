@@ -37,5 +37,6 @@ class Usuarios(models.Model):
 #fin modelos para usuarios
 
 #se crea modelo de token
-class Token(models.Model):
-    token= models.CharField()
+class Tokens(models.Model):
+    token= models.CharField(max_length=256)
+    user = models.CharField(max_length=256)

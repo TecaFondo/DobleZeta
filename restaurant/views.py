@@ -2,6 +2,7 @@ from email import header
 from telnetlib import LOGOUT
 from tokenize import group
 from turtle import delay
+from unicodedata import name
 from django.shortcuts import redirect, render
 from restaurant.forms import ProductoForm,UsuariosForm,LoginForm
 from restaurant.models import Producto, Usuarios
@@ -141,6 +142,7 @@ def cerrarsesion(request):
     return redirect(user_login)
 
 def nuevoProdApi(request):
+    token= Token.objects.all()
     datos={
         'form':ProductoForm()
     }
@@ -154,7 +156,7 @@ def nuevoProdApi(request):
             img=formulario.cleaned_data.get('img')
             categoria=formulario.cleaned_data.get('categoria')
             body={"cod_prod":cod_prod,"nombre":nombre,"desc":desc,"precio":precio,"img":img,"categoria":categoria}
-            headers={"authorization": "Token "}
+            headers={"authorization": "Token " + token}
             datos['mensaje']='Guardados correctamente'
         else:
             datos['mensaje']='no se ha guardado uwu'
