@@ -23,17 +23,17 @@ from rest_framework.response import Response as apiResponse
 from rest_framework.views import APIView
 # Create your views hera
 
+#se verifica el tipo de usuario.
 def is_staff(user):
-    return user.is_authenticated and user.Cliente
+    return (user.is_authenticated and user.is_superuser)
 
-@login_required
 def menu(request):
     listaProductos = Producto.objects.all()
     datos ={
         'productos':listaProductos
     }
     return render(request, "restaurant/menu.html",datos)
-@login_required
+
 def index(request):
     return render(request,"restaurant/index.html")
 
@@ -51,7 +51,8 @@ def user_login(request):
                 login(request,user)
                 return render(request, "restaurant/recuperar.html")
     return render(request,"restaurant/login.html",datos)
-#recuperar contraseña
+
+#recuperar contraseña(no implementado en este momento)
 def recuperar(request):
     return render(request,"restaurant/recuperar.html")
 
@@ -97,7 +98,8 @@ def vista_admin(request):
     }
 
     return render(request, "restaurant/vista_admin.html",datos)
-    
+
+@user_passes_test(is_staff)   
 def carga(request):
     datos={
         'form':ProductoForm()
@@ -111,7 +113,8 @@ def carga(request):
         else:
             datos['mensaje']='no se ha guardado uwu'
     return render(request,'restaurant/carga.html',datos)
-@login_required
+
+@user_passes_test(is_staff) 
 def form_mod_producto(request,id):
     producto=Producto.objects.get(cod_prod=id)
     datos={
@@ -126,7 +129,8 @@ def form_mod_producto(request,id):
             return redirect(vista_admin)
         datos['mensaje']='NO se ha podido modificar datos'
     return render(request,'restaurant/editar.html',datos)
-@login_required
+    
+@user_passes_test(is_staff) 
 def form_del_producto(request,id):
     producto=Producto.objects.get(cod_prod=id)
     producto.delete()
@@ -135,6 +139,27 @@ def form_del_producto(request,id):
 def cerrarsesion(request):
     logout(request)
     return redirect(user_login)
+
+def nuevoProdApi(request):
+    datos={
+        'form':ProductoForm()
+    }
+    if request.method == 'POST':
+        formulario = ProductoForm(request.POST or None, request.FILES or None) #se agrega request file para cargar imágenes
+        if formulario.is_valid():
+            cod_prod=formulario.cleaned_data.get('cod_prod')
+            nombre=formulario.cleaned_data.get('nombre')
+            desc=formulario.cleaned_data.get('des')
+            precio=formulario.cleaned_data.get('precio')
+            img=formulario.cleaned_data.get('img')
+            categoria=formulario.cleaned_data.get('categoria')
+            body={"cod_prod":cod_prod,"nombre":nombre,"desc":desc,"precio":precio,"img":img,"categoria":categoria}
+            headers={"authorization": "Token "}
+            datos['mensaje']='Guardados correctamente'
+        else:
+            datos['mensaje']='no se ha guardado uwu'
+    return render(request,'restaurant/carga.html',datos)
+
 
 #def googleLogin(request): #Se envia a usuario a pagina login de google (Se comenta ya que ahora no se utiliza)
 #    return render(request, 'restaurant/googleLogin.html')
