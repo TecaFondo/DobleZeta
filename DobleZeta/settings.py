@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-k#mokc##a)1-wlh(-lvmd7ea-$!cxbo3u76b%m@8u%zh^do74f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -79,6 +79,7 @@ TEMPLATES = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':[
+        #'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PARSER_CLASSES': (
@@ -167,5 +168,9 @@ SOCIALACCOUNT_PROVIDERS = {
 
 #Se declaran los redirects al iniciar y cerrar sesion
 SITE_ID = 2
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'http://localhost:8000/login/'
+LOGIN_REDIRECT_URL = 'http://localhost:8000/index/'
 LOGOUT_REDIRECT_URL = '/'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+#ACCOUNT_FORMS = {'login': 'restaurant.forms.CustomLoginForm'}

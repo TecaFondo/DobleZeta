@@ -19,7 +19,11 @@
 
     <div class="fixed-bottom show" id="flechita">
         <button class="btn btn-dark" id="flecha">
+            {%if user.is_authenticated%}
+            <a href="{% url 'cerrarsesion'%}" class="fa fa-user"></a>
+            {%else%}
             <a href="{% url 'login'%}" class="fa fa-user"></a>
+            {%endif%}
         </button>
     </div>
     <video src="{%static 'restaurant/video/coffeebroll.mp4'%}" autoplay loop muted></video>

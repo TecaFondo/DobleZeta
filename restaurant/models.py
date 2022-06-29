@@ -22,7 +22,7 @@ class Producto(models.Model):
     nombre=models.CharField(max_length=25,verbose_name='Nombre Produtcto')
     desc= models.CharField(max_length=144, verbose_name="Descripcion")
     precio= models.IntegerField(verbose_name='precio')
-    img=models.ImageField(upload_to = 'restaurant/static/restaurant/img/',null=True,verbose_name='Imagen')
+    img=models.ImageField(upload_to = 'restaurant/static/restaurant/img/',null=True,verbose_name='Imagen',blank=True)
     categoria=models.ForeignKey(Comida,null=True,on_delete=models.CASCADE)
     #en linea anterior se ha cambiado la ruta para guardar documentos en la carpeta static en vez de carpeta generada por bdd
     def __str__(self):
@@ -35,3 +35,8 @@ class Usuarios(models.Model):
     pswrdN= models.CharField(max_length=15, verbose_name="Contraseña")
     pswrdN2=models.CharField(max_length=15, verbose_name="Contraseña2")
 #fin modelos para usuarios
+
+#se crea modelo de token
+class Tokens(models.Model):
+    token= models.CharField(max_length=256)
+    user = models.CharField(max_length=256)

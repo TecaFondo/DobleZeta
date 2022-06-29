@@ -2,7 +2,7 @@
 #from tkinter import Menu
 from unicodedata import name
 from django.urls import path,include
-from restaurant.views import cerrarsesion, menu, index, user_login, newUser, recuperar,carga, form_mod_producto,vista_admin,form_del_producto, googleLogin
+from restaurant.views import cerrarsesion, menu, index, nuevoProdApi, user_login, newUser, recuperar,carga, form_mod_producto,vista_admin,form_del_producto, nuevoProdApi, editProdApi #googleLogin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
@@ -24,6 +24,8 @@ urlpatterns =[
     #path('googleLogin', googleLogin,name='googleLogin'),  #esto lleva al inicio de sesion de google (Se encuentra comentado pq ya no es necesario)
     path('accounts/', include('allauth.urls')), #se importa para el uso de google
     path('logout', LogoutView.as_view()),
+    path('nuevoProdApi/',nuevoProdApi,name='nuevoProdApi'),
+    path('editProdApi/',editProdApi,name='editProdApi'),
     #path('form-productos',form_productos,name='form_productos'),   
 ]
 if settings.DEBUG:
