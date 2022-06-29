@@ -22,8 +22,10 @@
     <main>
         <form method="POST" action="" id="formulario" enctype="multipart/form-data">
             {%csrf_token%}
-            <div class="form_group">
-                {{form.as_table}}
+            <div class="form_group row">
+                <div class="col-6">
+                    {{form.as_p}}
+                </div>
             </div>
             <input type="submit" class="btn btn-success" id="enviar" value="Modificar">
             <input type="reset" class="btn btn-danger" id="limpiar" value="Limpiar">
