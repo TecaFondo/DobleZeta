@@ -15,7 +15,7 @@
 <body class="fondolista">
     <div class="fixed-bottom show" id="flechita">
         <button class="btn btn-dark" id="flecha">
-            <a href="{% url 'vista_admin'%}" class="fa fa-arrow-left"></a>
+            <a href="{% url 'menu'%}" class="fa fa-arrow-left"></a>
         </button>
     </div>
     <!--Esta pagina es para cargar datos a bdd-->
@@ -29,7 +29,7 @@
         </div>
         <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
         <input type="reset" class="btn btn-danger" id="limpiar" value="Limpiar">
-        <div id="error" role="alert">
+        <div id="error" class="alert alert-danger" role="alert">
             {{mensaje}}
         </div>
     </form>

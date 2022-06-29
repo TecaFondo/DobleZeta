@@ -51,7 +51,7 @@
         <!--Menu de tipos de alimento-->
         <div class="row">
             <div class="col-sm-12">
-                <div class="btn-group-sm" role="group" aria-label="Basic example">
+                <div class="btn-group-sm" role="group" aria-label="Basic example" id="menuComidas">
                     <button type="button" class="btn btn-secondary"><a href="#pizzas">PIZZAS</a></button>
                     <button type="button" class="btn btn-secondary"><a href="#sandwiches">SANDWICHES</a></button>
                     <button type="button" class="btn btn-secondary"><a href="#cafeteria ">CAFETERIA</a></button>
@@ -72,45 +72,40 @@
         </button>
     </div>
     <main>
+        {% if user.is_authenticated%}
+        <!--Se muestra esta sección  de ofertas solamene si es que quien visualiza la págian está autenticado-->
+        <section id="ofertas">
+            <h2>Ofertas clientes Premium</h2>
+            <!-- Implementar for loop para cargar articulos desde bdd con sentencias sql y pueden verse solo por usuarios con perfil iniciado-->
+            <div class="platillos">
+                {%for prod in productos %}
+                <div class="platillo"><img src="/{{prod.img}}" alt="Foto de pizza" width="250">
+                    <h3>{{prod.nombre}}</h3>
+                    <p>{{prod.desc}}</p>
+                    <div class="precio">
+                        {{prod.precio}}
+                    </div>
+                    {%if user.is_superuser %}
+                    <div class="btn btn-group" role="group">
+                        <button type="button" class="btn btn-secondary"><a href="{% url 'editProdApi' prod.cod_prod%}">Editar</a></button>
+                        <button onclick="return confirm('Seguro que quiere Eliminar?');" class="btn btn-secondary" id="btnDelete"><a href="{% url 'delProdApi' prod.cod_prod%}">Eliminar</a></button>
+                    </div>
+                    {%endif%}
+                </div>
+                {%endfor%}
+            </div>
+            {% if user.is_superuser %}
+            <div class="btn btn-group" role="group">
+                <button type="button" class="btn btn-secondary"><a href="{% url 'nuevoProdApi'%}">Agregar Producto en Oferta</a></button>
+            </div>
+            {% endif %}
 
-        <table border="1">
-            <tr>
-                <th>
-                    nombre
-                </th>
-                <th>
-                    descripcion
-                </th>
-                <th>
-                    imagen
-                </th>
-                <th>
-                    precio
-                </th>
-            </tr>
-            {% for prod in productos%}
-            <tr>
-                <td>
-                    {{prod.nombre}}
-                </td>
-                <td>
-                    {{prod.desc}}
-                </td>
-
-                <td>
-                    <img src="{{prod.img.url}}" alt="Foto de pizza" width="250">
-                    <!--Se imprime imagen con ruta guardada en bdd a html (no se usa los archivos de carga de la bdd por ahora.)-->
-                </td>
-                <td>
-                    {{prod.precio}}
-                </td>
-            </tr>
-            {%endfor%}
-        </table>
-
+        </section>
+        {% endif %}
         <section id="pizzas">
             <h2>Pizzas</h2>
-            <div class="platillos" id="pizzaP"></div>
+            <div class="platillos" id="pizzaP">
+            </div>
         </section>
         <section id="sandwiches">
             <h2>Sándwiches</h2>
