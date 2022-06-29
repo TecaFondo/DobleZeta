@@ -714,6 +714,7 @@ input:focus :-ms-input-placeholder {
     background-image: url('../img/fondolista.jpg');
     object-fit: fill;
     border: 0;
+    align-items: center;
 }
 
 .fondotablaagregar {

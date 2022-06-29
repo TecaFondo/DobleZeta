@@ -55,7 +55,7 @@
                     <td>
                         <a href="{% url 'form_mod_producto' prod.cod_prod %}"><img src="{%static 'restaurant/img/lapiz.png'%}" class="modificar"></a>
                         <td>
-                            <a href="{% url 'form_del_producto' prod.cod_prod %}"><img src="{%static 'restaurant/img/eliminar.png'%}" class="modificar"></a>
+                            <button onclick="return confirm('Seguro que quiere Eliminar?');" class="btn btn-secondary" id="btnDelete"><a href="{% url 'form_del_producto' prod.cod_prod %}"><img src="{%static 'restaurant/img/eliminar.png'%}" class="modificar"></a></button>
                 </tr>
                 {%endfor%}
             </tr>
