@@ -13,6 +13,11 @@
 </head>
 
 <body class="fondolista">
+    <div class="fixed-bottom show" id="flechita">
+        <button class="btn btn-dark" id="flecha">
+            <a href="{% url 'vista_admin'%}" class="fa fa-arrow-left"></a>
+        </button>
+    </div>
     <!--Esta pagina es para editar prodcutos de la bdd-->
     <form method="POST" action="" id="formulario" enctype="multipart/form-data">
         {%csrf_token%}
@@ -21,11 +26,10 @@
         </div>
         <input type="submit" class="btn btn-danger" id="enviar" value="Modificar">
         <input type="reset" class="btn btn-danger" id="limpiar" value="Limpiar">
-        <div id="error" class="alert alert-danger" role="alert">
+        <div id="error" role="alert">
             {{mensaje}}
         </div>
     </form>
-
 
 
     <!--Siempre se declaran estos 3 al final del HTML (se debe mantener el orden)-->
