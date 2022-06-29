@@ -94,16 +94,12 @@ body {
 
 #menu_index {
     /*Se ajusta barra de navegación presente en index*/
+    text-align: center;
     position: relative;
     margin: 1%;
     align-content: center;
     align-self: center;
     padding: 1%;
-}
-
-div {
-    /* Se centra texto por defecto en los div*/
-    text-align: center;
 }
 
 #bajoFoto {
@@ -459,7 +455,13 @@ footer p {
 
 /*platillos*/
 
+#menuComidas {
+    /* se crea nuevo id para solucionar problemas generados con div y boton de google*/
+    text-align: center;
+}
+
 .platillo {
+    text-align: center;
     margin-top: 2vw;
     flex: 0 0 calc(33.3% - 1rem);
     border: 1px solid #464639;
@@ -690,24 +692,27 @@ input:focus :-ms-input-placeholder {
     background-color: #333333d0;
 }
 
+#error {
+    color: #00ff15;
+    font-family: "Josefine Sans, cursive";
+    font-size: 1rem;
+}
+
 #map {
     height: 500px;
     width: 100%;
 }
 
 #formulario {
-    margin: 2vh;
-    padding: 2vh;
+    margin: 5vh;
+    padding: 5vh;
     justify-content: center;
 }
 
-
 .fondolista {
-    width: 100%;
-    height: 10px 0px;
+    min-width: 100%;
     background-image: url('../img/fondolista.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    object-fit: fill;
     border: 0;
 }
 
@@ -728,3 +733,48 @@ svg {
     width: 50%;
 }
 
+
+/*Boton de ingreso google*/
+
+.google-btn {
+    width: 184px;
+    height: 42px;
+    background-color: #4285f4;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
+}
+
+.google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #fff;
+}
+
+.google-icon {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn-text {
+    float: right;
+    margin: 11px 11px 0 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+}
+
+
+/*fin google*/
+
+.modificar {
+    width: 50px;
+    height: 50px;
+}
