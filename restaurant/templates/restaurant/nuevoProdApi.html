@@ -19,20 +19,22 @@
         </button>
     </div>
     <!--Esta pagina es para cargar datos a bdd-->
-
-    <form method="POST" action="" id="formulario" enctype="multipart/form-data">
-        {%csrf_token%}
-        <div class="form_group row">
-            <div class="col-sm-12">
-                {{form.as_table}}
+    <main>
+        <form method="POST" action="" id="formulario" enctype="multipart/form-data">
+            {%csrf_token%}
+            <div class="form_group row">
+                <div class="col-sm-12">
+                    {{form.as_table}}
+                </div>
             </div>
-        </div>
-        <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
-        <input type="reset" class="btn btn-danger" id="limpiar" value="Limpiar">
-        <div id="error" class="alert alert-danger" role="alert">
-            {{mensaje}}
-        </div>
-    </form>
+            <input type="submit" class="btn btn-success" id="enviar" value="Enviar">
+            <input type="reset" class="btn btn-danger" id="limpiar" value="Limpiar">
+            <div id="error" role="alert">
+                {{mensaje}}
+            </div>
+        </form>
+
+    </main>
 
 
 

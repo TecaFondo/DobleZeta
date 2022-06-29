@@ -19,17 +19,20 @@
         </button>
     </div>
     <!--Esta pagina es para editar prodcutos de la bdd-->
-    <form method="POST" action="" id="formulario" enctype="multipart/form-data">
-        {%csrf_token%}
-        <div class="form_group">
-            {{form.as_table}}
-        </div>
-        <input type="submit" class="btn btn-danger" id="enviar" value="Modificar">
-        <input type="reset" class="btn btn-danger" id="limpiar" value="Limpiar">
-        <div id="error" role="alert">
-            {{mensaje}}
-        </div>
-    </form>
+    <main>
+        <form method="POST" action="" id="formulario" enctype="multipart/form-data">
+            {%csrf_token%}
+            <div class="form_group">
+                {{form.as_table}}
+            </div>
+            <input type="submit" class="btn btn-success" id="enviar" value="Modificar">
+            <input type="reset" class="btn btn-danger" id="limpiar" value="Limpiar">
+            <div id="error" role="alert">
+                {{mensaje}}
+            </div>
+        </form>
+    </main>
+
 
 
     <!--Siempre se declaran estos 3 al final del HTML (se debe mantener el orden)-->
