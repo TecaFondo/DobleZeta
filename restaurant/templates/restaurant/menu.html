@@ -85,13 +85,16 @@
                     <div class="precio">
                         {{prod.precio}}
                     </div>
+                    <div class="btn btn-group" role="group">
+                        <button type="button" class="btn btn-secondary"><a href="{% url 'editProdApi'%}">Editar</a></button>
+                        <button type="button" class="btn btn-secondary"><a href="{% url 'editProdApi'%}">Eliminar</a></button>
+                    </div>
                 </div>
                 {%endfor%}
             </div>
             {% if user.is_superuser %}
             <div class="btn btn-group" role="group">
-                <button type="button" class="btn btn-secondary"><a href="{% url 'nuevoProdApi'%}">PIZZAS</a></button>
-                <button type="button" class="btn btn-secondary"><a href="{% url 'editProdApi'%}">PIZZAS</a></button>
+                <button type="button" class="btn btn-secondary"><a href="{% url 'nuevoProdApi'%}">Agregar Producto en Oferta</a></button>
             </div>
             {% endif %}
 

@@ -168,7 +168,9 @@ SOCIALACCOUNT_PROVIDERS = {
 
 #Se declaran los redirects al iniciar y cerrar sesion
 SITE_ID = 2
+LOGIN_URL = 'http://localhost:8000/login/'
 LOGIN_REDIRECT_URL = 'http://localhost:8000/index/'
 LOGOUT_REDIRECT_URL = '/'
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 #ACCOUNT_FORMS = {'login': 'restaurant.forms.CustomLoginForm'}

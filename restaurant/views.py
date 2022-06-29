@@ -23,7 +23,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response as apiResponse
 from rest_framework.views import APIView
 # Create your views hera
-
+#se genera variable global token
+tok = None
 #se verifica el tipo de usuario.
 def is_staff(user):
     return (user.is_authenticated and user.is_superuser)
@@ -39,6 +40,7 @@ def index(request):
     return render(request,"restaurant/index.html")
 
 def user_login(request):
+    global tok
     datos={
         'form':LoginForm()
     }
@@ -50,7 +52,10 @@ def user_login(request):
             user = authenticate(username=usernameU,password=passwordU)
             if user is not None:
                 login(request,user)
-                return render(request, "restaurant/recuperar.html")
+                body= {"username": usernameU ,"password" : passwordU} #se genera json con info de usuario creado
+                r = requests.post('http://localhost:8000/api/login',data=json.dumps(body)) # se realiza la creacion de token
+                tok=r.text
+                return render(request, "restaurant/index.html")
     return render(request,"restaurant/login.html",datos)
 
 #recuperar contraseña(no implementado en este momento)
@@ -59,6 +64,7 @@ def recuperar(request):
 
 #se crea usuario nuevo y token
 def newUser(request): 
+    global tok
     datos={
         'form':UsuariosForm()
     }
@@ -85,7 +91,7 @@ def newUser(request):
                     #comienzo de creacion de token
                     body= {"username": usernameN ,"password" : passwordN} #se genera json con info de usuario creado
                     r = requests.post('http://localhost:8000/api/login',data=json.dumps(body)) # se realiza la creacion de token
-                    print(r.text) #se imprime token en forma  de debug
+                    tok=r.text #se imprime token en forma  de debug
                     #fin creacion token
                     return render(request, "restaurant/index.html")
     return render(request,"restaurant/newUser.html",datos)
@@ -141,8 +147,9 @@ def cerrarsesion(request):
     logout(request)
     return redirect(user_login)
 
+@user_passes_test(is_staff)
 def nuevoProdApi(request):
-    token= Token.objects.all()
+    global tok
     datos={
         'form':ProductoForm()
     }
@@ -154,13 +161,39 @@ def nuevoProdApi(request):
             desc=formulario.cleaned_data.get('des')
             precio=formulario.cleaned_data.get('precio')
             img=formulario.cleaned_data.get('img')
-            categoria=formulario.cleaned_data.get('categoria')
-            body={"cod_prod":cod_prod,"nombre":nombre,"desc":desc,"precio":precio,"img":img,"categoria":categoria}
-            headers={"authorization": "Token " + token}
+            body={"cod_prod":cod_prod,"nombre":nombre,"desc":desc,"precio":precio,"img":img}
+            headers={"authorization": "Token " + tok}
+            r = requests.post('http://localhost:8000/api/list_productos',data=json.dumps(body),header=headers) # se realiza la creacion de token
+            print(r.text)
             datos['mensaje']='Guardados correctamente'
         else:
             datos['mensaje']='no se ha guardado uwu'
-    return render(request,'restaurant/carga.html',datos)
+    return render(request,'restaurant/nuevoProdApi.html',datos)
+
+@user_passes_test(is_staff)
+def editProdApi(request):
+    global tok
+    datos={
+        'form':ProductoForm()
+    }
+    if request.method == 'POST':
+        formulario = ProductoForm(request.POST or None, request.FILES or None) #se agrega request file para cargar imágenes
+        if formulario.is_valid():
+            cod_prod=formulario.cleaned_data.get('cod_prod')
+            nombre=formulario.cleaned_data.get('nombre')
+            desc=formulario.cleaned_data.get('des')
+            precio=formulario.cleaned_data.get('precio')
+            img=formulario.cleaned_data.get('img')
+            body={"cod_prod":cod_prod,"nombre":nombre,"desc":desc,"precio":precio,"img":img}
+            headers={"authorization": "Token " + tok}
+            r = requests.post('http://localhost:8000/api/list_productos',data=json.dumps(body),header=headers) # se realiza la creacion de token
+            print(r.text)
+            datos['mensaje']='Guardados correctamente'
+        else:
+            datos['mensaje']='no se ha guardado uwu'
+    return render(request,'restaurant/nuevoProdApi.html',datos)
+
+
 
 
 #def googleLogin(request): #Se envia a usuario a pagina login de google (Se comenta ya que ahora no se utiliza)
