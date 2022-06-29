@@ -158,12 +158,12 @@ def nuevoProdApi(request):
         if formulario.is_valid():
             cod_prod=formulario.cleaned_data.get('cod_prod')
             nombre=formulario.cleaned_data.get('nombre')
-            desc=formulario.cleaned_data.get('des')
+            desc=formulario.cleaned_data.get('desc')
             precio=formulario.cleaned_data.get('precio')
             img=formulario.cleaned_data.get('img')
             body={"cod_prod":cod_prod,"nombre":nombre,"desc":desc,"precio":precio,"img":img}
-            headers={"authorization": "Token " + tok}
-            r = requests.post('http://localhost:8000/api/list_productos',data=json.dumps(body),header=headers) # se carga nuevo producto
+            headers={"authorization": "Token " + tok[1:-1]}
+            r = requests.post('http://localhost:8000/api/list_productos',data=json.dumps(body),headers=headers) # se carga nuevo producto
             print(r.text)
             datos['mensaje']='Guardados correctamente'
         else:
