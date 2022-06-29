@@ -83,9 +83,9 @@ $("menu.html").ready(function() {
 $("#mensajeError").hide();
 $("#mensajeErrorPass").hide();
 $("#loginBTN").click(function() {
-    var correo = $("#correo").val();
+    var correo = $("#userN").val();
     if (correo != "") {
-        if ($("#pass").val() != "") {
+        if ($("#pswrdN").val() != "") {
             $("#mensajeError").hide();
             $(location).prop('href', 'http://127.0.0.1:8000/vista_admin/')
         } else {
