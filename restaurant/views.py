@@ -163,7 +163,7 @@ def nuevoProdApi(request):
             img=formulario.cleaned_data.get('img')
             body={"cod_prod":cod_prod,"nombre":nombre,"desc":desc,"precio":precio,"img":img}
             headers={"authorization": "Token " + tok}
-            r = requests.post('http://localhost:8000/api/list_productos',data=json.dumps(body),header=headers) # se realiza la creacion de token
+            r = requests.post('http://localhost:8000/api/list_productos',data=json.dumps(body),header=headers) # se carga nuevo producto
             print(r.text)
             datos['mensaje']='Guardados correctamente'
         else:
@@ -171,29 +171,38 @@ def nuevoProdApi(request):
     return render(request,'restaurant/nuevoProdApi.html',datos)
 
 @user_passes_test(is_staff)
-def editProdApi(request):
+def editProdApi(request,id):
     global tok
+    headers={"authorization": 'Token ' + tok[1:-1]} #se elimina primer y ultimo elemento del token, ya que hay problemas con las comillas
+    r = requests.get('http://localhost:8000/api/detalle_productos/'+id, headers=headers) # se carga nuevo producto
+    producto=Producto.objects.get(cod_prod=id)
     datos={
-        'form':ProductoForm()
-    }
-    if request.method == 'POST':
-        formulario = ProductoForm(request.POST or None, request.FILES or None) #se agrega request file para cargar imágenes
+        'form':ProductoForm(instance=producto)
+    }  
+    if(request.method == 'POST'):
+        formulario = ProductoForm(request.POST or None, request.FILES or None, instance=producto)
         if formulario.is_valid():
+            producto=json.loads(r.text)
             cod_prod=formulario.cleaned_data.get('cod_prod')
             nombre=formulario.cleaned_data.get('nombre')
-            desc=formulario.cleaned_data.get('des')
+            desc=formulario.cleaned_data.get('desc')
             precio=formulario.cleaned_data.get('precio')
-            img=formulario.cleaned_data.get('img')
-            body={"cod_prod":cod_prod,"nombre":nombre,"desc":desc,"precio":precio,"img":img}
-            headers={"authorization": "Token " + tok}
-            r = requests.post('http://localhost:8000/api/list_productos',data=json.dumps(body),header=headers) # se realiza la creacion de token
-            print(r.text)
-            datos['mensaje']='Guardados correctamente'
-        else:
-            datos['mensaje']='no se ha guardado uwu'
+            body={"cod_prod": cod_prod , "nombre" : nombre, "desc" : desc , "precio" : precio}
+            r = requests.put('http://localhost:8000/api/detalle_productos/'+id,data=json.dumps(body),headers=headers) # se cargan modificaciones a producto
+            datos['mensaje']='Modificados correctamente'
+            return redirect(menu)
+        datos['mensaje']='NO se ha podido modificar datos'
     return render(request,'restaurant/nuevoProdApi.html',datos)
 
-
+@user_passes_test(is_staff)
+def delProdApi(request,id):
+    global tok
+    headers={"authorization": 'Token ' + tok[1:-1]} #se elimina primer y ultimo elemento del token, ya que hay problemas con las comillas
+    r = requests.get('http://localhost:8000/api/detalle_productos/'+id, headers=headers) # se carga producto
+    producto=json.loads(r.text)
+    r = requests.delete('http://localhost:8000/api/detalle_productos/'+id, headers=headers) # se elimina
+    print(r.text)
+    return  redirect(menu)
 
 
 #def googleLogin(request): #Se envia a usuario a pagina login de google (Se comenta ya que ahora no se utiliza)

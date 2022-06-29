@@ -85,10 +85,12 @@
                     <div class="precio">
                         {{prod.precio}}
                     </div>
+                    {%if user.is_superuser %}
                     <div class="btn btn-group" role="group">
-                        <button type="button" class="btn btn-secondary"><a href="{% url 'editProdApi'%}">Editar</a></button>
-                        <button type="button" class="btn btn-secondary"><a href="{% url 'editProdApi'%}">Eliminar</a></button>
+                        <button type="button" class="btn btn-secondary"><a href="{% url 'editProdApi' prod.cod_prod%}">Editar</a></button>
+                        <button onclick="return confirm('Seguro que quiere Eliminar?');" class="btn btn-secondary" id="btnDelete"><a href="{% url 'delProdApi' prod.cod_prod%}">Eliminar</a></button>
                     </div>
+                    {%endif%}
                 </div>
                 {%endfor%}
             </div>
