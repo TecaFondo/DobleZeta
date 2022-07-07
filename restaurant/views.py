@@ -1,18 +1,20 @@
+from dataclasses import dataclass
 from email import header
 from telnetlib import LOGOUT
+from threading import activeCount
 from tokenize import group
 from turtle import delay
 from unicodedata import name
 from django.shortcuts import redirect, render
 from restaurant.forms import ProductoForm,UsuariosForm,LoginForm
-from restaurant.models import Producto, Usuarios
+from restaurant.models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import permission_classes
 from django.contrib.auth.models import User, Group
-from django.http import HttpRequest, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponseRedirect, JsonResponse
 from rest_framework.authentication import TokenAuthentication
 from rest_comidas.viewsLogin import login as api_login
 #se importan clases de api
@@ -204,6 +206,26 @@ def delProdApi(request,id):
     print(r.text)
     return  redirect(menu)
 
+def updateItem(request):
+    data=json.loads(request.body)
+    cod_prod= data['cod_prod']
+    action = data['action']
+    print('Action: ', action)
+    print('Product: ', cod_prod)
 
-#def googleLogin(request): #Se envia a usuario a pagina login de google (Se comenta ya que ahora no se utiliza)
-#    return render(request, 'restaurant/googleLogin.html')
+    customer = request.user.customer
+    producto = Producto.objects.get(cod_prod=cod_prod) #check
+    orden,created= Order.objects.get_or_create(cliente=customer, complete=False) #check
+
+    orderItem, created = OrderItem.objects.get_or_create(product = producto,order = orden,)
+    
+    if action == 'add':
+        orderItem.quantity = (orderItem.quantity + 1)
+    elif action == 'remove':
+        orderItem.quantity = (orderItem.quantity -1)
+    orderItem.save()
+
+    if orderItem.quantity <=0:
+        orderItem.delete()
+    
+    return JsonResponse('Item was added', safe= False)

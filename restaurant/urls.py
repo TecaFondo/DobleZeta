@@ -2,7 +2,7 @@
 #from tkinter import Menu
 from unicodedata import name
 from django.urls import path,include
-from restaurant.views import cerrarsesion, menu, index, nuevoProdApi, user_login, newUser, recuperar,carga, form_mod_producto,vista_admin,form_del_producto, nuevoProdApi, editProdApi, delProdApi #googleLogin
+from restaurant.views import * #googleLogin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
@@ -27,6 +27,7 @@ urlpatterns =[
     path('nuevoProdApi/',nuevoProdApi,name='nuevoProdApi'),
     path('editProdApi/<id>',editProdApi,name='editProdApi'),
     path('delProdApi/<id>',delProdApi,name='delProdApi'),
+    path('update_item/', updateItem, name="update_item"),
     #path('form-productos',form_productos,name='form_productos'),   
 ]
 if settings.DEBUG:
