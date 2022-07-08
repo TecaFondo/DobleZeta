@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from email import header
+from multiprocessing import context
 from telnetlib import LOGOUT
 from threading import activeCount
 from tokenize import group
@@ -230,6 +231,27 @@ def updateItem(request):
     
     return JsonResponse('Item was added', safe= False)
 
-    def carrito(request):
-        if request.user.is_authenticated:
-            customer = request.user
+def tienda(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(cliente = customer, complete = False )
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total' : 0, 'get_cart_items':0}
+        cartItems = order['get_cartI_items']
+
+
+def carrito(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order,created = Order.objects.get_or_create(cliente = customer, complete = False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0 , 'get_cart_items':0}
+        cartItems = order ['get_cart_items']
+    context = {'items':items, 'order': order, 'cartItems':cartItems}
+    return render(request, 'restaurant/carrito.html',context)

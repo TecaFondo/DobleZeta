@@ -28,6 +28,7 @@ urlpatterns =[
     path('editProdApi/<id>',editProdApi,name='editProdApi'),
     path('delProdApi/<id>',delProdApi,name='delProdApi'),
     path('update_item/', updateItem, name="update_item"),
+    path('carrito/',carrito,name='carrito'),
     #path('form-productos',form_productos,name='form_productos'),   
 ]
 if settings.DEBUG:
