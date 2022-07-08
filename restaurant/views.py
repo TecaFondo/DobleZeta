@@ -229,3 +229,7 @@ def updateItem(request):
         orderItem.delete()
     
     return JsonResponse('Item was added', safe= False)
+
+    def carrito(request):
+        if request.user.is_authenticated:
+            customer = request.user
