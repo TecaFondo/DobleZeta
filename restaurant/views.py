@@ -255,3 +255,6 @@ def carrito(request):
         cartItems = order ['get_cart_items']
     context = {'items':items, 'order': order, 'cartItems':cartItems}
     return render(request, 'restaurant/carrito.html',context)
+
+def checkout(request):
+    return render(request,'restaurant/checkout.html')
