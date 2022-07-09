@@ -214,17 +214,21 @@ def updateItem(request):
     print('Action: ', action)
     print('Product: ', cod_prod)
 
-    customer = request.user.customer
+    customer = request.user.customer #obtiene el cliente (carrito propio para cada usuario)
     producto = Producto.objects.get(cod_prod=cod_prod) #check
-    orden,created= Order.objects.get_or_create(cliente=customer, complete=False) #check
+    orden,created= Order.objects.get_or_create(cliente=customer, complete=False) #genera orden
 
     orderItem, created = OrderItem.objects.get_or_create(product = producto,order = orden,)
     
     if action == 'add':
-        orderItem.quantity = (orderItem.quantity + 1)
+        if producto.stock > 0:
+            orderItem.quantity = (orderItem.quantity + 1)
+            producto.stock=(producto.stock - 1)
     elif action == 'remove':
         orderItem.quantity = (orderItem.quantity -1)
+        producto.stock=(producto.stock + 1)
     orderItem.save()
+    producto.save()
 
     if orderItem.quantity <=0:
         orderItem.delete()

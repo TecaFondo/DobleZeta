@@ -37,7 +37,8 @@
                 <div style="flex:1">
                     <p class="quantity">{{item.quantity}}</p>
                     <div class="quantity">
-                        <img data-producto="{{item.product.cod_prod}}" data-action="add" class="chg-quantity editar-carrito" src="{% static 'restaurant/img/arrow-up.png' %}" width="30">
+                        {% if item.product.stock > 0 %}
+                        <img data-producto="{{item.product.cod_prod}}" data-action="add" class="chg-quantity editar-carrito " src="{% static 'restaurant/img/arrow-up.png' %}" width="30"> {% endif %}
                         <img data-producto="{{item.product.cod_prod}}" data-action="remove" class="chg-quantity editar-carrito " src="{% static 'restaurant/img/arrow-down.png' %} " width="30 ">
                     </div>
                 </div>

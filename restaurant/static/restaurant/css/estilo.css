@@ -811,3 +811,7 @@ svg {
     font-weight: 700;
     padding-right: 10px;
 }
+
+button.disabled {
+    pointer-events: none;
+}
