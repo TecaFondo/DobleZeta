@@ -57,7 +57,10 @@ def user_login(request):
             user = authenticate(username=usernameU,password=passwordU)
             if user is not None:
                 login(request,user)
-                p, created = Customer.objects.get_or_create(username=user,name=usernameU,email=usernameU)
+                if(usernameU == "admin"):
+                    p, created = Customer.objects.get_or_create(username=user,name=usernameU,email="admin@admin.cl")
+                else:
+                    p, created = Customer.objects.get_or_create(username=user,name=usernameU,email=usernameU)
                 body= {"username": usernameU ,"password" : passwordU} #se genera json con info de usuario creado
                 r = requests.post('http://localhost:8000/api/login',data=json.dumps(body)) # se realiza la creacion de token
                 tok=r.text
@@ -261,17 +264,20 @@ def carrito(request):
     context = {'items':items, 'order': order, 'cartItems':cartItems}
     return render(request, 'restaurant/carrito.html',context)
 
-def procesar_compra(request):
+def procesar_compra(request): #se procesa el pago (no tiene implementado un metodo de pago)
     transaction_id = datetime.datetime.now().timestamp()
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(cliente=customer, complete=False)
 
         order.transaction_id = transaction_id
+
         if order.get_cart_total >0:
-            order.pagoProcesado = True
+            order.complete = True #esto lo elimina del carrito de compras (en pagina seguimiento se explica mejor)
+            order.pagoProcesado = True #esto marca paso 1 de seguimiento de pedido (en pagina de seguimiento se explica mejor)
         else:
             if order.get_cart_items>0:
+                order.complete = True #esto lo elimina del carrito de compras (en pagina seguimiento se explica mejor)
                 order.pagoProcesado = True
             else:
                 return JsonResponse('No existen productos!', safe=False)
