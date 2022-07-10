@@ -35,12 +35,16 @@ def is_staff(user):
     return (user.is_authenticated and user.is_superuser)
 
 def menu(request):
+    if request.user.is_authenticated:
+        return redirect(store)
+    return render(request, "restaurant/menu.html")
+
+def store(request):
     listaProductos = Producto.objects.all()
     datos ={
         'productos':listaProductos
     }
-    return render(request, "restaurant/menu.html",datos)
-
+    return render(request, "restaurant/store.html",datos)
 def index(request):
     return render(request,"restaurant/index.html")
 

@@ -6,7 +6,6 @@ from unittest.util import _MAX_LENGTH
 from django.db import models
 import django.contrib.admin
 from django.contrib.auth.models import User
-from numpy import product
 
 # Create your models here.
 
