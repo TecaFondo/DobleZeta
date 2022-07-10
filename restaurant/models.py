@@ -58,6 +58,10 @@ class Customer(models.Model):
 class Order(models.Model):
     cliente = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank = True)
     date_ordered = models.DateTimeField(auto_now_add=True)
+    pagoProcesado = models.BooleanField(default=False)
+    enPreparacion = models.BooleanField(default=False)
+    enRetiro = models.BooleanField(default=False)
+    retirado = models.BooleanField(default=False)
     complete = models.BooleanField(default=False)
     transaction_id = models.CharField(max_length=100, null=True)
 

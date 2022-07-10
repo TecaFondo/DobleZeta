@@ -815,3 +815,7 @@ svg {
 button.disabled {
     pointer-events: none;
 }
+
+.checkout {
+    color: #75cf6d;
+}

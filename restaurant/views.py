@@ -1,11 +1,13 @@
 from dataclasses import dataclass
 from email import header
+import email
 from multiprocessing import context
 from telnetlib import LOGOUT
 from threading import activeCount
 from tokenize import group
 from turtle import delay
 from unicodedata import name
+import datetime
 from django.shortcuts import redirect, render
 from restaurant.forms import ProductoForm,UsuariosForm,LoginForm
 from restaurant.models import *
@@ -55,6 +57,7 @@ def user_login(request):
             user = authenticate(username=usernameU,password=passwordU)
             if user is not None:
                 login(request,user)
+                p, created = Customer.objects.get_or_create(username=user,name=usernameU,email=usernameU)
                 body= {"username": usernameU ,"password" : passwordU} #se genera json con info de usuario creado
                 r = requests.post('http://localhost:8000/api/login',data=json.dumps(body)) # se realiza la creacion de token
                 tok=r.text
@@ -86,9 +89,7 @@ def newUser(request):
                 if(passwordN == passwordN2):
                     user = User.objects.create_user(username=usernameN,email=usernameN,password=passwordN)
                     user = authenticate(username=usernameN, password=passwordN) #autentifican las credenciales del usuario
-                    #se asigna un grupo al usuario nuevo (default comprador)
-                    my_group = Group.objects.get(name='Comprador')
-                    user.groups.add(my_group)
+                    p, created = Customer.objects.get_or_create(username=user,name=usernameN,email=usernameN) #se genera un cliente (necesario para carrito)
                     #se logea al usuario nuevo
                     login(request,user)
                     #comienzo de creacion de token
@@ -249,7 +250,7 @@ def tienda(request):
 
 def carrito(request):
     if request.user.is_authenticated:
-        customer = request.user.customer
+        customer, created = Customer.objects.get_or_create(username=request.user,name=request.user.username,email=request.user.email)
         order,created = Order.objects.get_or_create(cliente = customer, complete = False)
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
@@ -260,5 +261,21 @@ def carrito(request):
     context = {'items':items, 'order': order, 'cartItems':cartItems}
     return render(request, 'restaurant/carrito.html',context)
 
-def checkout(request):
-    return render(request,'restaurant/checkout.html')
+def procesar_compra(request):
+    transaction_id = datetime.datetime.now().timestamp()
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(cliente=customer, complete=False)
+
+        order.transaction_id = transaction_id
+        if order.get_cart_total >0:
+            order.pagoProcesado = True
+        else:
+            if order.get_cart_items>0:
+                order.pagoProcesado = True
+            else:
+                return JsonResponse('No existen productos!', safe=False)
+        order.save()
+        
+    return JsonResponse('Pago realizado!', safe=False)
+
