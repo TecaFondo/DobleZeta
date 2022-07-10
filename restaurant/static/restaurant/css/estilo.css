@@ -86,6 +86,10 @@ body {
     color: #fffcf7;
 }
 
+body h5 {
+    color: #ececec;
+}
+
 #comidas {
     /*Ajuste de sector id comidas (carta de comidas)*/
     margin: 4%;
@@ -779,3 +783,39 @@ svg {
 
 
 /*fin google*/
+
+
+/*carrito de compras*/
+
+.box-element {
+    box-shadow: hsl(0, 0%, 29%) 0 0 16px;
+    background-color: #212222;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.row-image {
+    width: 18vw;
+}
+
+.cart-row {
+    display: flex;
+    align-items: flex-stretch;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ececec
+}
+
+.quantity {
+    display: inline-block;
+    font-weight: 700;
+    padding-right: 10px;
+}
+
+button.disabled {
+    pointer-events: none;
+}
+
+.checkout {
+    color: #75cf6d;
+}

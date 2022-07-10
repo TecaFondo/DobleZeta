@@ -1,18 +1,23 @@
+from dataclasses import dataclass
 from email import header
+import email
+from multiprocessing import context
 from telnetlib import LOGOUT
+from threading import activeCount
 from tokenize import group
 from turtle import delay
 from unicodedata import name
+import datetime
 from django.shortcuts import redirect, render
 from restaurant.forms import ProductoForm,UsuariosForm,LoginForm
-from restaurant.models import Producto, Usuarios
+from restaurant.models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import permission_classes
 from django.contrib.auth.models import User, Group
-from django.http import HttpRequest, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponseRedirect, JsonResponse
 from rest_framework.authentication import TokenAuthentication
 from rest_comidas.viewsLogin import login as api_login
 #se importan clases de api
@@ -52,6 +57,10 @@ def user_login(request):
             user = authenticate(username=usernameU,password=passwordU)
             if user is not None:
                 login(request,user)
+                if(usernameU == "admin"):
+                    p, created = Customer.objects.get_or_create(username=user,name=usernameU,email="admin@admin.cl")
+                else:
+                    p, created = Customer.objects.get_or_create(username=user,name=usernameU,email=usernameU)
                 body= {"username": usernameU ,"password" : passwordU} #se genera json con info de usuario creado
                 r = requests.post('http://localhost:8000/api/login',data=json.dumps(body)) # se realiza la creacion de token
                 tok=r.text
@@ -83,9 +92,7 @@ def newUser(request):
                 if(passwordN == passwordN2):
                     user = User.objects.create_user(username=usernameN,email=usernameN,password=passwordN)
                     user = authenticate(username=usernameN, password=passwordN) #autentifican las credenciales del usuario
-                    #se asigna un grupo al usuario nuevo (default comprador)
-                    my_group = Group.objects.get(name='Comprador')
-                    user.groups.add(my_group)
+                    p, created = Customer.objects.get_or_create(username=user,name=usernameN,email=usernameN) #se genera un cliente (necesario para carrito)
                     #se logea al usuario nuevo
                     login(request,user)
                     #comienzo de creacion de token
@@ -204,6 +211,77 @@ def delProdApi(request,id):
     print(r.text)
     return  redirect(menu)
 
+def updateItem(request):
+    data=json.loads(request.body)
+    cod_prod= data['cod_prod']
+    action = data['action']
+    print('Action: ', action)
+    print('Product: ', cod_prod)
 
-#def googleLogin(request): #Se envia a usuario a pagina login de google (Se comenta ya que ahora no se utiliza)
-#    return render(request, 'restaurant/googleLogin.html')
+    customer = request.user.customer #obtiene el cliente (carrito propio para cada usuario)
+    producto = Producto.objects.get(cod_prod=cod_prod) #check
+    orden,created= Order.objects.get_or_create(cliente=customer, complete=False) #genera orden
+
+    orderItem, created = OrderItem.objects.get_or_create(product = producto,order = orden,)
+    
+    if action == 'add':
+        if producto.stock > 0:
+            orderItem.quantity = (orderItem.quantity + 1)
+            producto.stock=(producto.stock - 1)
+    elif action == 'remove':
+        orderItem.quantity = (orderItem.quantity -1)
+        producto.stock=(producto.stock + 1)
+    orderItem.save()
+    producto.save()
+
+    if orderItem.quantity <=0:
+        orderItem.delete()
+    
+    return JsonResponse('Item was added', safe= False)
+
+def tienda(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(cliente = customer, complete = False )
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total' : 0, 'get_cart_items':0}
+        cartItems = order['get_cartI_items']
+
+
+def carrito(request):
+    if request.user.is_authenticated:
+        customer, created = Customer.objects.get_or_create(username=request.user,name=request.user.username,email=request.user.email)
+        order,created = Order.objects.get_or_create(cliente = customer, complete = False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0 , 'get_cart_items':0}
+        cartItems = order ['get_cart_items']
+    context = {'items':items, 'order': order, 'cartItems':cartItems}
+    return render(request, 'restaurant/carrito.html',context)
+
+def procesar_compra(request): #se procesa el pago (no tiene implementado un metodo de pago)
+    transaction_id = datetime.datetime.now().timestamp()
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(cliente=customer, complete=False)
+
+        order.transaction_id = transaction_id
+
+        if order.get_cart_total >0:
+            order.complete = True #esto lo elimina del carrito de compras (en pagina seguimiento se explica mejor)
+            order.pagoProcesado = True #esto marca paso 1 de seguimiento de pedido (en pagina de seguimiento se explica mejor)
+        else:
+            if order.get_cart_items>0:
+                order.complete = True #esto lo elimina del carrito de compras (en pagina seguimiento se explica mejor)
+                order.pagoProcesado = True
+            else:
+                return JsonResponse('No existen productos!', safe=False)
+        order.save()
+        
+    return JsonResponse('Pago realizado!', safe=False)
+

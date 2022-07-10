@@ -31,7 +31,6 @@
                         <a class="navbar-text" href="https://www.google.com/maps/dir//DOBLE+ZETA+Restaurant+%26+Cafeter%C3%ADa+-+Las+Tranqueras+117,+local+1+Esquina,+Pedro+de+Gamboa,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.4003076,-70.5570257,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x9662cfe1e534fe7d:0x44189b4506027cfb!2m2!1d-70.554837!2d-33.4003121!3e0"
                             target="_blank">CÓMO LLEGAR </a>
                         <a class="navbar-text" href="{% url 'index'%}#nosotros">NOSOTROS</a>
-                        <a href="{%url 'carrito'%}" class="navbar-text"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                     </div>
                 </nav>
             </nav>
@@ -74,62 +73,7 @@
         </button>
     </div>
     <main>
-        {% if user.is_authenticated%}
-        <!--Se muestra esta sección  de ofertas solamene si es que quien visualiza la págian está autenticado-->
-        <section id="ofertas">
-            <h2>Ofertas clientes Premium</h2>
-            <!-- Implementar for loop para cargar articulos desde bdd con sentencias sql y pueden verse solo por usuarios con perfil iniciado-->
-            <div class="platillos">
-                {%for prod in productos %}
-                <div class="platillo"><img src="/{{prod.img}}" alt="Foto de pizza" width="250">
-                    <h3>{{prod.nombre}}</h3>
-                    <p>{{prod.desc}}</p>
-                    <div class="precio">
-                        {{prod.precio}}
-                    </div>
-                    {% if prod.stock > 0 %}
-                    <button data-producto={{prod.cod_prod}} data-action="add" class="btn btn-secondary add-button editar-carrito"> Agregar al Carrito</button> {{prod.stock}} {%else%}
-                    <button class="btn btn-secondary add-button disabled"> Producto Agotado</button> {{prod.stock}} {% endif %} {%if user.is_superuser %}
-                    <div class="btn btn-group" role="group">
-                        <button type="button" class="btn btn-secondary"><a href="{% url 'editProdApi' prod.cod_prod%}">Editar</a></button>
-                        <button onclick="return confirm('Seguro que quiere Eliminar?');" class="btn btn-secondary" id="btnDelete"><a href="{% url 'delProdApi' prod.cod_prod%}">Eliminar</a></button>
-                    </div>
-                    {%endif%}
-                </div>
-                {%endfor%}
-            </div>
-            {% if user.is_superuser %}
-            <div class="btn btn-group" role="group">
-                <button type="button" class="btn btn-secondary"><a href="{% url 'nuevoProdApi'%}">Agregar Producto en Oferta</a></button>
-            </div>
-            {% endif %}
-
-        </section>
-        {% endif %}
-        <section id="pizzas">
-            <h2>Pizzas</h2>
-            <div class="platillos" id="pizzaP">
-            </div>
-        </section>
-        <section id="sandwiches">
-            <h2>Sándwiches</h2>
-            <div class="platillos" id="sandwichP"></div>
-        </section>
-        <section id="cafeteria">
-            <h2>Cafetería</h2>
-            <div class="platillos" id="cafeteriaP"></div>
-        </section>
-        <section id="al_plato">
-            <h2>Al plato</h2>
-            <div class="platillos" id="platoP"></div>
-        </section>
-        <section id="bebidas">
-            <h2>Bebidas</h2>
-            <div class="platillos" id="bebidaP"></div>
-        </section>
-
-
-
+        {% block content %} {% endblock content %}
     </main>
     <!--FOOTER-->
     <footer class="bg-dark text-center text-white">
