@@ -1,0 +1,30 @@
+{% extends 'restaurant/main.html' %} {% load static %} {% block content %}
+
+<div class="box-element">
+    <div class="cart-row">
+        <div style="flex:2"><strong>N° Seguimiento</strong></div>
+        <div style="flex:1"><strong>Cantidad Elementos</strong></div>
+        <div style="flex:1"><strong>Precio</strong></div>
+        <div style="flex:1"><strong>Estado</strong></div>
+    </div>
+    {% for ped in pedido %}
+    <div class="cart-row2">
+        <div style="flex:2">{{ped.transaction_id}}</div>
+        <div style="flex:2">{{ped.get_cart_items}}</div>
+        <div style="flex:1">${{ped.get_cart_total}}</div>
+        <div style="flex:1">
+            {% if ped.enRetiro == True %}
+            <p class="quantity">En Retiro</p>
+            {% else %} {% if ped.enPreparacion == True %}
+            <p class="quantity">En Preparacion</p>
+            {% else %}
+            <p class="quantity">Pago procesado</p>
+            {% endif %} {% endif %}
+
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

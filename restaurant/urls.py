@@ -31,6 +31,8 @@ urlpatterns =[
     path('carrito/',carrito,name='carrito'),
     path('procesar/',procesar_compra,name='procesar_compra'),
     path('tienda/',store,name='store'),
+    path('seguimiento/',seguimiento, name='seguimiento'),
+    path('pedidos/',pedidos,name='pedidos')
     #path('form-productos',form_productos,name='form_productos'),   
 ]
 if settings.DEBUG:

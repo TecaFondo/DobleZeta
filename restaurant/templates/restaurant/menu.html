@@ -74,38 +74,6 @@
         </button>
     </div>
     <main>
-        {% if user.is_authenticated%}
-        <!--Se muestra esta sección  de ofertas solamene si es que quien visualiza la págian está autenticado-->
-        <section id="ofertas">
-            <h2>Ofertas clientes Premium</h2>
-            <!-- Implementar for loop para cargar articulos desde bdd con sentencias sql y pueden verse solo por usuarios con perfil iniciado-->
-            <div class="platillos">
-                {%for prod in productos %}
-                <div class="platillo"><img src="/{{prod.img}}" alt="Foto de pizza" width="250">
-                    <h3>{{prod.nombre}}</h3>
-                    <p>{{prod.desc}}</p>
-                    <div class="precio">
-                        {{prod.precio}}
-                    </div>
-                    {% if prod.stock > 0 %}
-                    <button data-producto={{prod.cod_prod}} data-action="add" class="btn btn-secondary add-button editar-carrito"> Agregar al Carrito</button> {{prod.stock}} {%else%}
-                    <button class="btn btn-secondary add-button disabled"> Producto Agotado</button> {{prod.stock}} {% endif %} {%if user.is_superuser %}
-                    <div class="btn btn-group" role="group">
-                        <button type="button" class="btn btn-secondary"><a href="{% url 'editProdApi' prod.cod_prod%}">Editar</a></button>
-                        <button onclick="return confirm('Seguro que quiere Eliminar?');" class="btn btn-secondary" id="btnDelete"><a href="{% url 'delProdApi' prod.cod_prod%}">Eliminar</a></button>
-                    </div>
-                    {%endif%}
-                </div>
-                {%endfor%}
-            </div>
-            {% if user.is_superuser %}
-            <div class="btn btn-group" role="group">
-                <button type="button" class="btn btn-secondary"><a href="{% url 'nuevoProdApi'%}">Agregar Producto en Oferta</a></button>
-            </div>
-            {% endif %}
-
-        </section>
-        {% endif %}
         <section id="pizzas">
             <h2>Pizzas</h2>
             <div class="platillos" id="pizzaP">
