@@ -31,6 +31,7 @@
                         <a class="navbar-text" href="https://www.google.com/maps/dir//DOBLE+ZETA+Restaurant+%26+Cafeter%C3%ADa+-+Las+Tranqueras+117,+local+1+Esquina,+Pedro+de+Gamboa,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.4003076,-70.5570257,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x9662cfe1e534fe7d:0x44189b4506027cfb!2m2!1d-70.554837!2d-33.4003121!3e0"
                             target="_blank">CÓMO LLEGAR </a>
                         <a class="navbar-text" href="{% url 'index'%}#nosotros">NOSOTROS</a>
+                        <a href="{%url 'carrito'%}" class="navbar-text"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                     </div>
                 </nav>
             </nav>
@@ -53,15 +54,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="btn-group-sm" role="group" aria-label="Basic example" id="menuComidas">
-                    <button type="button" class="btn btn-secondary"><a href="#pizzas">PIZZAS</a></button>
-                    <button type="button" class="btn btn-secondary"><a href="#sandwiches">SANDWICHES</a></button>
-                    <button type="button" class="btn btn-secondary"><a href="#cafeteria ">CAFETERIA</a></button>
-                    <button type="button" class="btn btn-secondary"><a href="#cafeteria ">PASTELERIA</a></button>
-                    <button type="button" class="btn btn-secondary"><a href="#al_plato ">AL PLATO</a></button>
-                    <button type="button" class="btn btn-secondary"><a href="#cremas_verduras">CREMAS DE VERDURA</a></button>
-                    <button type="button" class="btn btn-secondary"><a href="#ensaladas">ENSALADAS</a></button>
-                    <button type="button" class="btn btn-secondary"><a href="#helados ">HELADOS</a></button>
-                    <button type="button" class="btn btn-secondary"><a href="#bebidas">BEBIDAS, JUGOS, CERVEZAS</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="{% url 'menu' %}">MENU</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="{% url 'seguimiento' %}">SEGUIMIENTO</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="{% url 'pedidos' %}">PEDIDOS</a></button>
                 </div>
             </div>
         </div>

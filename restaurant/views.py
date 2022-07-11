@@ -35,12 +35,16 @@ def is_staff(user):
     return (user.is_authenticated and user.is_superuser)
 
 def menu(request):
+    if request.user.is_authenticated:
+        return redirect(store)
+    return render(request, "restaurant/menu.html")
+
+def store(request):
     listaProductos = Producto.objects.all()
     datos ={
         'productos':listaProductos
     }
-    return render(request, "restaurant/menu.html",datos)
-
+    return render(request, "restaurant/store.html",datos)
 def index(request):
     return render(request,"restaurant/index.html")
 
@@ -282,6 +286,22 @@ def procesar_compra(request): #se procesa el pago (no tiene implementado un meto
             else:
                 return JsonResponse('No existen productos!', safe=False)
         order.save()
-        
+        return redirect(seguimiento)
     return JsonResponse('Pago realizado!', safe=False)
 
+def pedidos(request):
+    listaproductos = Order.objects.filter(cliente=request.user.customer)
+    print(listaproductos)
+    data={
+        'pedido' : listaproductos
+    }
+    return render(request,'restaurant/pedidos.html',data)
+    
+def seguimiento(request):
+    #listaproductos = Order.objects.all()
+    listaproductos = Order.objects.filter(cliente=request.user.customer, complete=True, pagoProcesado=True,retirado=False)
+    print(listaproductos)
+    data={
+        'pedido' : listaproductos
+    }
+    return render(request,'restaurant/seguimiento.html', data)
