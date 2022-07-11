@@ -4,14 +4,17 @@
     {% if pedido.lenght > 0 %}
     <div class="cart-row">
         <div style="flex:2"><strong>N° Seguimiento</strong></div>
+        <div style="flex:2"><strong>Nombre Comprador</strong></div>
         <div style="flex:1"><strong>Cantidad Elementos</strong></div>
         <div style="flex:1"><strong>Precio</strong></div>
         <div style="flex:1"><strong>Estado</strong></div>
+
     </div>
     {% for ped in pedido reversed %}
     <div class="cart-row2">
         <div style="flex:2">{{ped.transaction_id}}</div>
-        <div style="flex:2">{{ped.get_cart_items}}</div>
+        <div style="flex:2">{{ped.cliente}}</div>
+        <div style="flex:1">{{ped.get_cart_items}}</div>
         <div style="flex:1">${{ped.get_cart_total}}</div>
         <div style="flex:1">
             {% if ped.retirado == True %}
@@ -23,7 +26,7 @@
             {% else %}
             <p class="quantity">Pago procesado</p>
             {% endif %} {% endif %} {% endif %}
-
+            <button class="btn btn-dark"><a href="{% url 'cambio' ped %}">Paso Siguiente</a></button>
         </div>
     </div>
     {% endfor %} {% else %}

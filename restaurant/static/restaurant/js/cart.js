@@ -37,6 +37,3 @@ function updateUserOrder(cod_prod, action) {
             location.reload()
         })
 }
-
-
-var updateBtns = document.getElementsByClassName('editar-carrito')
