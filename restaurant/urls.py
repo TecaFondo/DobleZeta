@@ -2,7 +2,7 @@
 #from tkinter import Menu
 from unicodedata import name
 from django.urls import path,include
-from restaurant.views import * #googleLogin
+from restaurant.views import * 
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
@@ -32,7 +32,9 @@ urlpatterns =[
     path('procesar/',procesar_compra,name='procesar_compra'),
     path('tienda/',store,name='store'),
     path('seguimiento/',seguimiento, name='seguimiento'),
-    path('pedidos/',pedidos,name='pedidos')
+    path('pedidos/',pedidos,name='pedidos'),
+    path('cambioestado/',cambioestado,name='cambioestado'),
+    path('cambio/<id>',cambio,name='cambio'),
     #path('form-productos',form_productos,name='form_productos'),   
 ]
 if settings.DEBUG:

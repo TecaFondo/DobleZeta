@@ -1,6 +1,7 @@
 {% extends 'restaurant/main.html' %} {% load static %} {% block content %}
 
 <div class="box-element">
+    {% if pedido.lenght > 0 %}
     <div class="cart-row">
         <div style="flex:2"><strong>N° Seguimiento</strong></div>
         <div style="flex:1"><strong>Cantidad Elementos</strong></div>
@@ -23,7 +24,9 @@
 
         </div>
     </div>
-    {% endfor %}
+    {% endfor %} {% else %}
+    <div style="text-align:center"><strong>No Hay Pedidos Activos</strong></div>
+    {%endif%}
 
 </div>
 

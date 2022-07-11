@@ -290,7 +290,10 @@ def procesar_compra(request): #se procesa el pago (no tiene implementado un meto
     return JsonResponse('Pago realizado!', safe=False)
 
 def pedidos(request):
-    listaproductos = Order.objects.filter(cliente=request.user.customer)
+    if request.user.is_superuser:
+        listaproductos = Order.objects.filter(retirado=True)
+    else:
+        listaproductos = Order.objects.filter(cliente=request.user.customer)
     print(listaproductos)
     data={
         'pedido' : listaproductos
@@ -305,3 +308,24 @@ def seguimiento(request):
         'pedido' : listaproductos
     }
     return render(request,'restaurant/seguimiento.html', data)
+
+@user_passes_test(is_staff)
+def cambioestado(request):
+    listaproductos = Order.objects.filter(complete=True,retirado=False)
+    print(listaproductos)
+    data={
+        'pedido' : listaproductos
+    }
+    return render(request, 'restaurant/cambioestado.html',data)
+
+@user_passes_test(is_staff)
+def cambio(request,id):
+    p=Order.objects.get(id=id)
+    if(p.enRetiro==True):
+        p.retirado = True
+    elif (p.enPreparacion ==True):
+        p.enRetiro = True
+    elif(p.pagoProcesado == True):
+        p.enPreparacion = True
+    p.save()
+    return redirect(cambioestado)
